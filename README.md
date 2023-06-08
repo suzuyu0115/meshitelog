@@ -80,3 +80,8 @@ README〜ER図作成：6/10 〆切
 
 ## 画面遷移図
 https://www.figma.com/file/YVtS6MfWRdhdZkLd8S4qBu/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0-1&t=411CwZooed8oAqH4-0
+
+
+## ER図
+![meshitelog_er](https://github.com/suzuyu0115/meshitelog/assets/113349377/55772f1b-5036-4541-b3e9-3afd016f2977)
+
