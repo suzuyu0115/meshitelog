@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 ## サービス名
 ## 飯テログ
 
@@ -110,6 +84,3 @@ https://www.figma.com/file/YVtS6MfWRdhdZkLd8S4qBu/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 
 ## ER図
 ![meshitelog_er_diagram](https://github.com/suzuyu0115/meshitelog/assets/113349377/7dab9769-72fa-4c29-91ad-8c6507542307)
-
-
->>>>>>> origin/main
