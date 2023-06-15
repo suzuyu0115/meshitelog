@@ -67,7 +67,15 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
     ast (2.4.2)
+    backport (1.2.0)
+    benchmark (0.2.1)
+    better_errors (2.10.1)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+      rouge (>= 1.0.0)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -80,6 +88,9 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    debug_inspector (1.1.0)
+    diff-lcs (1.5.0)
+    e2mmap (0.1.0)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -91,10 +102,15 @@ GEM
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
+    jaro_winkler (1.5.6)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.6.3)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -162,10 +178,14 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    rbs (2.8.4)
     regexp_parser (2.8.1)
     reline (0.3.5)
       io-console (~> 0.5)
+    reverse_markdown (2.1.1)
+      nokogiri
     rexml (3.2.5)
+    rouge (4.1.2)
     rubocop (1.52.1)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -186,6 +206,22 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
     ruby-progressbar (1.13.0)
+    solargraph (0.49.0)
+      backport (~> 1.2)
+      benchmark
+      bundler (~> 2.0)
+      diff-lcs (~> 1.4)
+      e2mmap
+      jaro_winkler (~> 1.5)
+      kramdown (~> 2.3)
+      kramdown-parser-gfm (~> 1.1)
+      parser (~> 3.0)
+      rbs (~> 2.0)
+      reverse_markdown (~> 2.0)
+      rubocop (~> 1.38)
+      thor (~> 1.0)
+      tilt (~> 2.0)
+      yard (~> 0.9, >= 0.9.24)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -196,6 +232,7 @@ GEM
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.2)
+    tilt (2.2.0)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -213,6 +250,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.34)
     zeitwerk (2.6.8)
 
 PLATFORMS
@@ -220,6 +258,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootsnap
   bullet
   debug
@@ -231,6 +271,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rails
+  solargraph
   sprockets-rails
   stimulus-rails
   turbo-rails
