@@ -66,9 +66,8 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'bullet'
-
   gem 'better_errors'
   gem 'binding_of_caller'
-
   gem 'solargraph'
+  gem 'annotate'
 end
