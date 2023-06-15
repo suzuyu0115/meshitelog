@@ -68,6 +68,6 @@ group :development do
   gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'solargraph'
+  gem 'solargraph', '~> 0.38.0'
   gem 'annotate'
 end
