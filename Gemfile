@@ -71,11 +71,12 @@ group :development do
   gem 'solargraph', '~> 0.38.0'
   gem 'annotate'
   gem 'rails-i18n'
-  gem 'cssbundling-rails'
-  gem 'jsbundling-rails'
-  gem 'bootstrap'
 end
 
 group :development, :production, :test do
+  gem 'cssbundling-rails'
+  gem 'jsbundling-rails'
+  gem 'bootstrap'
   gem 'jquery-rails'
+  gem 'popper_js'
 end
