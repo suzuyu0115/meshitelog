@@ -72,4 +72,5 @@ group :development do
   gem 'annotate'
   gem 'rails-i18n'
   gem 'cssbundling-rails'
+  gem 'jsbundling-rails'
 end
