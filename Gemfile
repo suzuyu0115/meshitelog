@@ -74,5 +74,5 @@ group :development do
   gem 'cssbundling-rails'
   gem 'jsbundling-rails'
   gem 'bootstrap'
-  
+  gem 'jquery-rails'
 end
