@@ -2,19 +2,15 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.0",
-    "bootstrap-icons": "^1.10.5",
-    "jquery": "^3.7.0",
-    "popper.js": "^1.16.1",
-    "sass": "^1.63.4",
-    "webpack": "^5.87.0"
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "esbuild": "^0.17.0",
+    "jquery": "^3.6.3",
+    "sass": "^1.57.1"
   },
   "scripts": {
-    "build": "webpack --mode production",
-    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
-  },
-  "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   }
 }
