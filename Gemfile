@@ -73,4 +73,6 @@ group :development do
   gem 'rails-i18n'
   gem 'cssbundling-rails'
   gem 'jsbundling-rails'
+  gem 'bootstrap'
+  
 end
