@@ -70,4 +70,5 @@ group :development do
   gem 'binding_of_caller'
   gem 'solargraph', '~> 0.38.0'
   gem 'annotate'
+  gem 'rails-i18n'
 end
