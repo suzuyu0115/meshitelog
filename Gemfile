@@ -71,4 +71,5 @@ group :development do
   gem 'solargraph', '~> 0.38.0'
   gem 'annotate'
   gem 'rails-i18n'
+  gem 'cssbundling-rails'
 end

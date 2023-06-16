@@ -87,6 +87,8 @@ GEM
       uniform_notifier (~> 1.11)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cssbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -253,6 +255,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   bullet
+  cssbundling-rails
   debug
   importmap-rails
   jbuilder
