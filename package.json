@@ -13,5 +13,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }
