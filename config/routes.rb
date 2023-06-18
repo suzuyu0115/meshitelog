@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tops#index'
+  root 'static_pages#top'
 
-  get 'tops/index'
+  get 'static_pages/top'
 end
