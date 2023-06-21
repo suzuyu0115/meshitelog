@@ -75,5 +75,4 @@ group :development do
   gem 'jsbundling-rails'
   gem 'bootstrap'
   gem 'jquery-rails'
-  gem 'font-awesome-sass', '~> 5.12.0'
 end
