@@ -14,4 +14,17 @@
 #  index_users_on_provider_and_uid  (provider,uid) UNIQUE
 #
 class User < ApplicationRecord
+  validates :name, presence: true
+  validates :provider, presence: true, uniqueness: true
+  validates :uid, presence: true, uniqueness: true
+
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+    end
+  end
 end
