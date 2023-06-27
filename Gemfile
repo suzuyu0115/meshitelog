@@ -51,6 +51,10 @@ gem "sassc-rails"
 # 環境変数
 gem 'dotenv-rails'
 
+# 認証周り
+gem 'omniauth'
+gem 'omniauth-line'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
