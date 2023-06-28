@@ -15,16 +15,17 @@
 #
 class User < ApplicationRecord
   validates :name, presence: true
-  validates :provider, presence: true, uniqueness: true
-  validates :uid, presence: true, uniqueness: true
+  validates :provider, presence: true
+  validates :uid, presence: true
+  validates_uniqueness_of :uid, scope: :provider
 
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]
     uid = auth[:uid]
     name = auth[:info][:name]
 
-    self.find_or_create_by(provider: provider, uid: uid) do |user|
-      user.name = name
-    end
+    user = self.find_or_initialize_by(provider: provider, uid: uid)
+    user.name = name
+    user.save ? user : nil
   end
 end
