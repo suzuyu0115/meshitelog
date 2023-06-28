@@ -1,0 +1,18 @@
+ja:
+  defaults:
+    app_name: '飯テログ'
+    logout: 'ログアウト'
+    tentative_name: '飯テロ 太郎'
+    copyright: 'Copyright © 2023. 飯テログ'
+  posts:
+    index:
+      title: '一覧'
+    new:
+      title: '投稿'
+    bookmarks:
+      title: 'お気に入り'
+    search:
+      title: '探す'
+  profiles:
+    show:
+      title: 'プロフィール'
