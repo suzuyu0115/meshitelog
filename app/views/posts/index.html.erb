@@ -1,0 +1,139 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <!-- 検索フォーム -->
+      <form>
+        <div class="input-group mb-3"><input class="form-control" placeholder="検索ワード" type="search"/>
+          <div class="input-group-append"><input type="submit" value="検索" class="btn btn-primary"/></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 掲示板一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <div id="board-id-1">
+            <div class="card"><img class="card-img-top" src="/assets/board_placeholder.png" width="300" height="200"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">タイトル0</a>
+                </h4>
+                <div class='mr10 float-right'>
+                  <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+                    <%= icon 'fa', 'pen' %>
+                  <% end %>
+                  <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+                    <%= icon 'fas', 'trash' %>
+                  <% end %>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="far fa-user"></i> 原田 優衣</li>
+                  <li class="list-inline-item"><i class="far fa-calendar"></i> 2019/12/26 17:00</li>
+                </ul>
+                <p class="card-text">本文0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <div id="board-id-2">
+            <div class="card"><img class="card-img-top" src="/assets/board_placeholder.png" width="300" height="200"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">タイトル1</a>
+                </h4>
+                <div class='mr10 float-right'>
+                  <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+                    <%= icon 'fa', 'pen' %>
+                  <% end %>
+                  <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+                    <%= icon 'fas', 'trash' %>
+                  <% end %>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="far fa-user"></i> 吉田 優</li>
+                  <li class="list-inline-item"><i class="far fa-calendar"></i> 2019/12/26 17:00</li>
+                </ul>
+                <p class="card-text">本文1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <div id="board-id-3">
+            <div class="card"><img class="card-img-top" src="/assets/board_placeholder.png" width="300" height="200"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">タイトル2</a>
+                </h4>
+                <div class='mr10 float-right'>
+                  <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+                    <%= icon 'fa', 'pen' %>
+                  <% end %>
+                  <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+                    <%= icon 'fas', 'trash' %>
+                  <% end %>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="far fa-user"></i> 橋本 愛子</li>
+                  <li class="list-inline-item"><i class="far fa-calendar"></i> 2019/12/26 17:00</li>
+                </ul>
+                <p class="card-text">本文2</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <div id="board-id-4">
+            <div class="card"><img class="card-img-top" src="/assets/board_placeholder.png" width="300" height="200"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">タイトル3</a>
+                </h4>
+                <div class='mr10 float-right'>
+                  <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+                    <%= icon 'fa', 'pen' %>
+                  <% end %>
+                  <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+                    <%= icon 'fas', 'trash' %>
+                  <% end %>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="far fa-user"></i> 上野 響</li>
+                  <li class="list-inline-item"><i class="far fa-calendar"></i> 2019/12/26 17:00</li>
+                </ul>
+                <p class="card-text">本文3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-4 mb-3">
+          <div id="board-id-5">
+            <div class="card"><img class="card-img-top" src="/assets/board_placeholder.png" width="300" height="200"/>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">タイトル4</a>
+                </h4>
+                <div class='mr10 float-right'>
+                  <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+                    <%= icon 'fa', 'pen' %>
+                  <% end %>
+                  <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+                    <%= icon 'fas', 'trash' %>
+                  <% end %>
+                </div>
+                <ul class="list-inline">
+                  <li class="list-inline-item"><i class="far fa-user"></i> 橋本 愛子</li>
+                  <li class="list-inline-item"><i class="far fa-calendar"></i> 2019/12/26 17:00</li>
+                </ul>
+                <p class="card-text">本文4</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
