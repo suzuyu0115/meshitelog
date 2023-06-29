@@ -37,5 +37,9 @@ module Meshitelog
       g.skip_routes true   # ルーティングを生成しない
       g.helper false       # helperを生成しない
     end
+
+    config.i18n.default_locale = :ja  # デフォルトのlocaleを日本語(:ja)にする
+    # 複数のローケルファイルを読み込まれるようにする
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
   end
 end

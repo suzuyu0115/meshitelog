@@ -1,6 +1,6 @@
 <header class='sticky-top'>
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <%= link_to '飯テログ', root_path, class: 'navbar-brand' %>
+    <%= link_to t('defaults.app_name'), root_path, class: 'navbar-brand' %>
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class='navbar-toggler-icon'></span>
@@ -13,7 +13,7 @@
             <%= image_tag 'sample.jpg', class: 'rounded-circle mr15', size: '40x40' %>
           </a>
           <div class='dropdown-menu dropdown-menu-right'>
-            <div class='dropdown-item'>らんてっく たろう</div>
+            <div class='dropdown-item'><%= t('defaults.tentative_name') %></div>
             <div class='dropdown-divider'></div>
             <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
             <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %>
