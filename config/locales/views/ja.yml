@@ -7,6 +7,7 @@ ja:
   posts:
     index:
       title: '一覧'
+      no_result: '飯投稿がありません'
     new:
       title: '投稿'
     bookmarks:
