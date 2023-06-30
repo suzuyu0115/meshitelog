@@ -21,6 +21,6 @@
     <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
-    <%= render 'shared/fixed_footer' %>
+    <%= render 'shared/fixed_footer' if current_user %>
   </body>
 </html>
