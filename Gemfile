@@ -83,4 +83,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
+
+  # シードデータ
+  gem 'faker'
 end
