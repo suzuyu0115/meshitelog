@@ -14,7 +14,11 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
+    <% if current_user %>
+      <%= render 'shared/header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= render 'shared/fixed_footer' %>
