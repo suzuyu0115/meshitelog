@@ -15,8 +15,12 @@
           <% end %>
         </div>
         <ul class="list-inline">
-          <li class="list-inline-item"><i class="far fa-user"></i>ユーザーの名前</li>
-          <li class="list-inline-item"><i class="far fa-calendar"></i><%= l post.created_at, format: :long %></li>
+          <li class="list-inline-item"><i class="far fa-user"></i>
+            <%= post.user.name %>
+          </li>
+          <li class="list-inline-item"><i class="far fa-calendar"></i>
+            <%= l post.created_at, format: :long %>
+          </li>
         </ul>
         <p class="card-text"><%= post.content %></p>
       </div>
