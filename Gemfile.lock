@@ -264,10 +264,6 @@ GEM
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
-    turbo-rails (1.4.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
@@ -313,7 +309,6 @@ DEPENDENCIES
   sassc-rails
   sprockets-rails
   stimulus-rails
-  turbo-rails
   tzinfo-data
   web-console
 
