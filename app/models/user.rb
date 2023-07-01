@@ -14,6 +14,8 @@
 #  index_users_on_provider_and_uid  (provider,uid) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
+
   validates :name, presence: true
   validates :provider, presence: true
   validates :uid, presence: true
