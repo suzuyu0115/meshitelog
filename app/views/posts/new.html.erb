@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>掲示板作成</h1>
+      <form class="new_board">
+        <div class="form-group">
+          <label for="board_title">タイトル</label>
+          <input class="form-control" type="text" name="board[title]" id="board_title" />
+        </div>
+        <div class="form-group">
+          <label for="board_body">本文</label>
+          <textarea class="form-control" row="10" style="height: 200px" name="board[body]" id="board_body"></textarea>
+        </div>
+        <input type="submit" name="commit" value="作成" class="btn btn-primary" data-disable-with="作成" />
+      </form>
+    </div>
+  </div>
+</div>
