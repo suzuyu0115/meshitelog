@@ -4,6 +4,9 @@ ja:
     logout: 'ログアウト'
     tentative_name: '飯テロ 太郎'
     copyright: 'Copyright © 2023. 飯テログ'
+    message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
   sessions:
     create:
       success: 'ログインしました'

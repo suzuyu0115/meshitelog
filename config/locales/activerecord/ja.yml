@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    model:
+      user: 'ユーザー'
+      post: '飯投稿'
+    attributes:
