@@ -12,8 +12,15 @@
   <br>
   <div class="form-group">
     <%= f.label :food_image %>
-    <%= f.file_field :food_image, class: 'form-control mb-3', accept: 'image/*' %>
+    <%= f.file_field :food_image, class: 'form-control mb-3',
+        accept: 'image/*', onchange: 'previewImage()' %>
     <%= f.hidden_field :food_image_cache %>
+  </div>
+  <br>
+  <div class="mt-3 mb-3">
+    <%= image_tag post.food_image.url,
+                  id: 'preview',
+                  size: '300x200' %>
   </div>
   <br>
   <%= f.submit class: 'btn btn-primary' %>
