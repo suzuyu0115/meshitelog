@@ -6,11 +6,10 @@ class FoodImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  if Rails.env.development? # 開発環境の場合
+
+  if Rails.env.development? || Rails.env.test?
     storage :file
-  elsif Rails.env.test? # テスト環境の場合
-    storage :file
-  else # 本番環境の場合
+  else
     storage :fog
   end
 
@@ -27,7 +26,9 @@ class FoodImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-  def default_url # デフォルトの画像ファイル
+
+  # デフォルトの画像ファイル
+  def default_url
     'post_placeholder.png'
   end
 
@@ -45,7 +46,9 @@ class FoodImageUploader < CarrierWave::Uploader::Base
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_allowlist # 拡張子の制限
+
+  # 拡張子の制限
+  def extension_allowlist
     %w[jpg jpeg gif png]
   end
 
