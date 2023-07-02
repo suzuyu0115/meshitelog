@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  content    :text             not null
+#  food_image :string
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -18,6 +19,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  mount_uploader :food_image, FoodImageUploader
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 255 }

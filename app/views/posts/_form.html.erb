@@ -10,5 +10,11 @@
     <%= f.text_area :content, class: 'form-control', rows: 10 %>
   </div>
   <br>
+  <div class="form-group">
+    <%= f.label :food_image %>
+    <%= f.file_field :food_image, class: 'form-control mb-3', accept: 'image/*' %>
+    <%= f.hidden_field :food_image_cache %>
+  </div>
+  <br>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
