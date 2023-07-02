@@ -19,6 +19,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
+  mount_uploader :food_image, FoodImageUploader
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 255 }
