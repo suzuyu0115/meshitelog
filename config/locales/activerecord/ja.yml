@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '飯投稿'
+      comment: 'コメント'
     attributes:
       post:
         title: '料理名'

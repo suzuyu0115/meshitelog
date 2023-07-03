@@ -1,0 +1,74 @@
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1>掲示板詳細</h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <img class="card-img-top img-fluid" src="sample.jpg" width="300" height="200" />
+            </div>
+            <div class='col-md-9'>
+              <h3 style='display: inline;'>タイトル32</h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">by 小野 凛</li>
+                <li class="list-inline-item">2019/05/09 17:11</li>
+              </ul>
+            </div>
+          </div>
+          <p>本文32</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- コメントフォーム -->
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <form>
+        <label for="comment_body">コメント</label>
+        <textarea class="form-control mb-3" row="4" placeholder="コメント"></textarea>
+        <input type="submit" name="commit" value="投稿" class="btn btn-primary" />
+      </form>
+    </div>
+  </div>
+
+
+  <!-- コメントエリア -->
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <table id="js-table-comment" class="table">
+        <tr id="comment-25">
+          <td style="width: 60px">
+            <img class="rounded-circle" src="sample.jpg" width="50" height="50" />
+          </td>
+          <td>
+            <h3 class="small">らんてっく たろう</h3>
+            <div id="js-comment-25">
+              <p>コメントです</p>
+            </div>
+            <div style="display: none;">
+              <textarea class="form-control mb-1">コメントです</textarea>
+              <button class="btn btn-light">キャンセル</button>
+              <button class="btn btn-success">更新</button>
+            </div>
+          </td>
+
+          <td class="action">
+            <ul class="list-inline justify-content-center" style="float: right;">
+              <li class="list-inline-item">
+                <a href="#"><i class='fa fa-pencil'></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
