@@ -6,14 +6,7 @@
         <h4 class="card-title">
           <a href="#"><%= post.title %></a>
         </h4>
-        <div class='mr10 float-right'>
-          <%= link_to '#', id: 'button-edit-#{board.id}' do %>
-            <i class="bi bi-pen"></i>
-          <% end %>
-          <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
-            <i class="bi bi-trash"></i>
-          <% end %>
-        </div>
+          <%= render 'crud_menus', post: post %>
         <ul class="list-inline">
           <li class="list-inline-item"><i class="far fa-user"></i>
             <%= post.user.name %>
