@@ -15,6 +15,7 @@
 #
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :provider, presence: true
@@ -28,5 +29,10 @@ class User < ApplicationRecord
     user = find_or_initialize_by(provider:, uid:)
     user.name = name
     user.save ? user : nil
+  end
+
+  # current_userか否かを判別するロジック
+  def own?(object)
+    object.user_id == id
   end
 end

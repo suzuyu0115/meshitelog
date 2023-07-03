@@ -3,8 +3,11 @@ ja:
     models:
       user: 'ユーザー'
       post: '飯投稿'
+      comment: 'コメント'
     attributes:
       post:
         title: '料理名'
         content: 'コメント'
         food_image: '飯画像'
+      comment:
+        body: 'コメント'

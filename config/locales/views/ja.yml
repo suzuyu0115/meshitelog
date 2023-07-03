@@ -4,6 +4,7 @@ ja:
     logout: 'ログアウト'
     tentative_name: '飯テロ 太郎'
     copyright: 'Copyright © 2023. 飯テログ'
+    post: '投稿'
     message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
@@ -19,6 +20,8 @@ ja:
       no_result: '飯投稿がありません'
     new:
       title: '飯投稿'
+    show:
+      title: '詳細'
     bookmarks:
       title: 'お気に入り'
     search:
