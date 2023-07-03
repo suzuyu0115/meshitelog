@@ -1,35 +1,7 @@
 <div class="row">
   <div class="col-lg-8 offset-lg-2">
     <table id="js-table-comment" class="table">
-      <tr id="comment-25">
-        <td style="width: 60px">
-          <img class="rounded-circle" src="sample.jpg" width="50" height="50" />
-        </td>
-        <td>
-          <h3 class="small">らんてっく たろう</h3>
-          <div id="js-comment-25">
-            <p>コメントです</p>
-          </div>
-          <div style="display: none;">
-            <textarea class="form-control mb-1">コメントです</textarea>
-            <button class="btn btn-light">キャンセル</button>
-            <button class="btn btn-success">更新</button>
-          </div>
-        </td>
-
-        <td class="action">
-          <ul class="list-inline justify-content-center" style="float: right;">
-            <li class="list-inline-item">
-              <a href="#"><i class='fa fa-pencil'></i></a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fa fa-trash"></i>
-              </a>
-            </li>
-          </ul>
-        </td>
-      </tr>
+      <%= render comments %>
     </table>
   </div>
 </div>
