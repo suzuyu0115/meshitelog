@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(comment.post), success: t('defaults.message.created', item: Comment.model_name.human)
     else
       redirect_to post_path(comment.post), danger: t('defaults.message.not_created', item: Comment.model_name.human)
+		end
 	end
 
 	private

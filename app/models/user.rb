@@ -30,4 +30,9 @@ class User < ApplicationRecord
     user.name = name
     user.save ? user : nil
   end
+
+  # current_userか否かを判別するロジック
+  def own?(object)
+  object.user_id == id
+  end
 end
