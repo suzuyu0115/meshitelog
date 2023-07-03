@@ -33,6 +33,6 @@ class User < ApplicationRecord
 
   # current_userか否かを判別するロジック
   def own?(object)
-  object.user_id == id
+    object.user_id == id
   end
 end

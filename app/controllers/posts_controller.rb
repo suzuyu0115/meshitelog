@@ -3,6 +3,12 @@ class PostsController < ApplicationController
     @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+  end
+
   def new
     @post = Post.new
   end
@@ -15,12 +21,6 @@ class PostsController < ApplicationController
       flash.now[:danger] = t('defaults.message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   private
