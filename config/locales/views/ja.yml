@@ -19,6 +19,8 @@ ja:
       no_result: '飯投稿がありません'
     new:
       title: '飯投稿'
+    show:
+      title: '飯投稿詳細'
     bookmarks:
       title: 'お気に入り'
     search:

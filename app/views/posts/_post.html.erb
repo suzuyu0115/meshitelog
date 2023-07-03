@@ -4,7 +4,7 @@
       <%= image_tag post.food_image.url, class: 'card-img-top', size: '300x200' %>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="#"><%= post.title %></a>
+          <a href="#"><%= link_to post.title, post_path(post) %></a>
         </h4>
           <%= render 'crud_menus', post: post %>
         <ul class="list-inline">
