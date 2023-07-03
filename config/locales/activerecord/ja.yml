@@ -9,3 +9,5 @@ ja:
         title: '料理名'
         content: 'コメント'
         food_image: '飯画像'
+      comment:
+        body: 'コメント'
