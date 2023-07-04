@@ -12,6 +12,7 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   sessions:
     create:
       success: 'ログインしました'

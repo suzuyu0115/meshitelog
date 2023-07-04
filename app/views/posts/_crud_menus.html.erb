@@ -1,11 +1,11 @@
 <ul class="crud-menu-btn list-inline justify-content-center" style="float: right;">
   <li class="list-inline-item">
-    <%= link_to '#', id: 'button-edit-#{board.id}' do %>
+    <%= link_to edit_post_path(post), id: 'button-edit-#{board.id}' do %>
       <i class="bi bi-pen"></i>
     <% end %>
   </li>
   <li class="list-inline-item">
-    <%= link_to '#', id: 'button-delete-#{board.id}', method: :delete, data: {confirm: ''} do %>
+    <%= link_to post_path(post), id: 'button-delete-#{board.id}', data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }  do %>
       <i class="bi bi-trash"></i>
     <% end %>
   </li>
