@@ -6,10 +6,8 @@
         <h4 class="card-title">
           <a href="#"><%= link_to post.title, post_path(post) %></a>
         </h4>
-          <% if current_user %>
-            <% if current_user.own?(post) %>
-              <%= render 'crud_menus', post: post %>
-            <% end %>
+          <% if current_user && current_user.own?(post) %>
+            <%= render 'crud_menus', post: post %>
           <% end %>
         <ul class="list-inline">
           <li class="list-inline-item"><i class="far fa-user"></i>
