@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
-  resources :posts, only: %i[index new create show] do
+  resources :posts do
     resources :comments, only: %i[create], shallow: true
   end
 

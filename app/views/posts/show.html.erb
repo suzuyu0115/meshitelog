@@ -12,7 +12,9 @@
             </div>
             <div class='col-md-9'>
               <h3 style='display: inline;'><%= @post.title %></h3>
-              <%= render 'crud_menus', post: @post %>
+              <% if current_user && current_user.own?(@post) %>
+                <%= render 'crud_menus', post: @post %>
+              <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item">by <%= @post.user.name %></li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :long %></li>
