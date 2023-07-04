@@ -27,6 +27,8 @@ ja:
       title: '飯投稿'
     show:
       title: '詳細'
+    edit:
+      title: '編集'
     bookmarks:
       title: 'お気に入り'
     search:
