@@ -15,6 +15,8 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit; end
+
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
@@ -24,8 +26,6 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def edit; end
 
   def update
     if @post.update(post_params)
