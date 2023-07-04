@@ -14,18 +14,21 @@
     </div>
   </td>
 
-  <% if current_user.own?(comment) %>
-    <td class="action">
-      <ul class="list-inline justify-content-center" style="float: right;">
-        <li class="list-inline-item">
-          <a href="#"><i class='fa fa-pencil'></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">
-            <i class="fa fa-trash"></i>
-          </a>
-        </li>
-      </ul>
-    </td>
+  <% if current_user %>
+    <% if current_user.own?(comment) %>
+      <td class="action">
+        <ul class="list-inline justify-content-center" style="float: right;">
+          <li class="list-inline-item">
+            <a href="#"><i class='fa fa-pencil'></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fa fa-trash"></i>
+            </a>
+          </li>
+        </ul>
+      </td>
+    <% end %>
   <% end %>
+
 </tr>
