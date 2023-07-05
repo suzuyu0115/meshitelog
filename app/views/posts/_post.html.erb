@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-lg-4 mb-3">
-  <div id="board-id-1">
+  <div id="post-id-1">
     <div class="card">
       <%= image_tag post.food_image.url, class: 'card-img-top', size: '300x200' %>
       <div class="card-body">
@@ -8,7 +8,7 @@
         </h4>
           <% if current_user && current_user.own?(post) %>
             <%= render 'crud_menus', post: post %>
-          <% else %>
+          <% elsif current_user %>
             <%= render 'bookmark_button', post: post %>
           <% end %>
         <ul class="list-inline">

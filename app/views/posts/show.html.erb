@@ -14,7 +14,7 @@
               <h3 style='display: inline;'><%= @post.title %></h3>
               <% if current_user && current_user.own?(@post) %>
                 <%= render 'crud_menus', post: @post %>
-              <% else %>
+              <% elsif current_user %>
                 <%= render 'bookmark_button', post: @post %>
               <% end %>
               <ul class="list-inline">
