@@ -37,4 +37,19 @@ class User < ApplicationRecord
   def own?(object)
     object.user_id == id
   end
+
+  # ブックマークに追加する
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  # ブックマークを外す
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
+  end
+
+  # ブックマークをしているか判定する
+  def bookmark?(post)
+    bookmark_posts.include?(post)
+  end
 end

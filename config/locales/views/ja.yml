@@ -33,6 +33,11 @@ ja:
       title: 'お気に入り'
     search:
       title: '探す'
+  bookmarks:
+    create:
+      success: 'お気に入りに登録しました'
+    destroy:
+      success: 'お気に入りから削除しました'
   profiles:
     show:
       title: 'プロフィール'
