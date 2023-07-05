@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: %i[create], shallow: true
     collection do
-      get 'bookmarks'
+      get :bookmarks
     end
   end
 

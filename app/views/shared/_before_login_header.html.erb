@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
-    <%= link_to '飯テログ', root_path, class: 'navbar-brand' %>
+    <%= link_to t('defaults.app_name'), root_path, class: 'navbar-brand' %>
 
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item">
-          <%= link_to "LINEでログイン", "/auth/line", class: "btn btn-primary" %>
+          <%= link_to t('defaults.line_login'), "/auth/line", class: "btn btn-primary" %>
         </li>
       </ul>
     </div>

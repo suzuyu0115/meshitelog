@@ -6,6 +6,7 @@ ja:
     copyright: 'Copyright © 2023. 飯テログ'
     post: '投稿'
     index: '一覧'
+    line_login: 'LINEでログイン'
     message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
