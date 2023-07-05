@@ -31,6 +31,7 @@ ja:
       title: '編集'
     bookmarks:
       title: 'お気に入り'
+      no_result: 'お気に入りがありません'
     search:
       title: '探す'
   bookmarks:
