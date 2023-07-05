@@ -6,6 +6,7 @@ ja:
     copyright: 'Copyright © 2023. 飯テログ'
     post: '投稿'
     index: '一覧'
+    line_login: 'LINEでログイン'
     message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
@@ -31,8 +32,14 @@ ja:
       title: '編集'
     bookmarks:
       title: 'お気に入り'
+      no_result: 'お気に入りがありません'
     search:
       title: '探す'
+  bookmarks:
+    create:
+      success: 'お気に入りに登録しました'
+    destroy:
+      success: 'お気に入りから削除しました'
   profiles:
     show:
       title: 'プロフィール'

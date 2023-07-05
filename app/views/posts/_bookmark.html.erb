@@ -1,0 +1,3 @@
+<%= link_to bookmarks_path(post_id: post.id), id: "js-bookmark-button-for-post-#{post.id}",class: 'float-right', data: { "turbo-method": :post }, remote: true do %>
+  <i class="bi bi-bookmark-check"></i>
+<% end %>

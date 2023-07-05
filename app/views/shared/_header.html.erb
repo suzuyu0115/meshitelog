@@ -15,8 +15,8 @@
           <div class='dropdown-menu dropdown-menu-right'>
             <div class='dropdown-item'><%= t('defaults.tentative_name') %></div>
             <div class='dropdown-divider'></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %>
+            <%= link_to t('profiles.show.title'), '#', class: 'dropdown-item' %>
+            <%= link_to t('defaults.logout'), logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %>
           </div>
         </li>
       </ul>

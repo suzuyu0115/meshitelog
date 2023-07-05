@@ -16,6 +16,8 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :name, presence: true
   validates :provider, presence: true
@@ -34,5 +36,20 @@ class User < ApplicationRecord
   # current_userか否かを判別するロジック
   def own?(object)
     object.user_id == id
+  end
+
+  # ブックマークに追加する
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  # ブックマークを外す
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
+  end
+
+  # ブックマークをしているか判定する
+  def bookmark?(post)
+    bookmark_posts.include?(post)
   end
 end
