@@ -4,9 +4,7 @@
     <div class="col-lg-10 offset-lg-1">
       <!-- 検索フォーム -->
       <form>
-        <div class="input-group mb-3"><input class="form-control" placeholder="検索ワード" type="search"/>
-          <div class="input-group-append"><input type="submit" value="検索" class="btn btn-primary"/></div>
-        </div>
+        <%= render 'search_form', url: posts_path %>
       </form>
     </div>
   </div>
