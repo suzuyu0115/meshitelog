@@ -21,6 +21,11 @@
           <p><%= t('.no_result') %></p>
         <% end %>
       </div>
+      <!--ページネーション-->
+      <div class="row">
+        <div class="col-12">
+          <%= paginate @bookmark_posts %>
+        </div>
       </div>
     </div>
   </div>
