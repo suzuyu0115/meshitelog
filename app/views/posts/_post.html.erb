@@ -8,6 +8,7 @@
         </h4>
           <% if current_user && current_user.own?(post) %>
             <%= render 'crud_menus', post: post %>
+            <%= render 'bookmark_button', post: post %>
           <% elsif current_user %>
             <%= render 'bookmark_button', post: post %>
           <% end %>
