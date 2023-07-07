@@ -7,6 +7,7 @@ ja:
     post: '投稿'
     index: '一覧'
     line_login: 'LINEでログイン'
+    search_word: '飯を探す'
     message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
