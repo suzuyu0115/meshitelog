@@ -6,8 +6,14 @@
       <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
       <table class="table">
         <tr>
-          <th scope="row"><%= User.human_attribute_name(:name) %></th>
-          <td><%= current_user.name %></td>
+          <th scope="row"><%= User.human_attribute_name(:nickname) %></th>
+          <td>
+            <% if current_user.nickname.present? %>
+              <%= current_user.nickname %>
+            <% else %>
+              <%= current_user.name %>
+            <% end %>
+          </td>
         </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:avatar) %></th>

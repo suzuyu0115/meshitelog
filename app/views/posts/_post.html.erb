@@ -14,7 +14,11 @@
           <% end %>
         <ul class="list-inline">
           <li class="list-inline-item"><i class="far fa-user"></i>
-            <%= post.user.name %>
+            <% if post.user.nickname.present? %>
+              <%= post.user.nickname %>
+            <% else %>
+              <%= post.user.name %>
+            <% end %>
           </li>
           <li class="list-inline-item"><i class="far fa-calendar"></i>
             <%= l post.created_at, format: :long %>
