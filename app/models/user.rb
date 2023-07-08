@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  avatar     :string
 #  name       :string           not null
+#  nickname   :string
 #  provider   :string           not null
 #  uid        :string           not null
 #  created_at :datetime         not null
