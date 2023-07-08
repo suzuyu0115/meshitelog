@@ -2,10 +2,10 @@ ja:
   defaults:
     app_name: '飯テログ'
     logout: 'ログアウト'
-    tentative_name: '飯テロ 太郎'
     copyright: 'Copyright © 2023. 飯テログ'
     post: '投稿'
     index: '一覧'
+    edit: '編集'
     line_login: 'LINEでログイン'
     search_word: '飯を探す'
     message:
@@ -44,3 +44,5 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+    edit:
+      title: 'プロフィール編集'

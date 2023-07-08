@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id         :bigint           not null, primary key
+#  avatar     :string
 #  name       :string           not null
 #  provider   :string           not null
 #  uid        :string           not null
@@ -14,6 +15,7 @@
 #  index_users_on_provider_and_uid  (provider,uid) UNIQUE
 #
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
