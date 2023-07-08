@@ -5,6 +5,9 @@ ja:
       post: '飯投稿'
       comment: 'コメント'
     attributes:
+      user:
+        name: 'なまえ'
+        avatar: 'アバター'
       post:
         title: '料理名'
         content: 'コメント'
