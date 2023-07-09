@@ -23,5 +23,10 @@
                   size: '300x200' %>
   </div>
   <br>
+  <div class="form-group">
+    <%= f.label :published_at %>
+    <%= f.datetime_field :published_at, class: 'form-control' %>
+  </div>
+  <br>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

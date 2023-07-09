@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @q = Post.ransack(params[:q])
+    @q = Post.where('published_at IS NULL OR published_at <= ?', Time.current).ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :food_image, :food_image_cache)
+    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at)
   end
 end
