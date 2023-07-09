@@ -1,0 +1,21 @@
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+  <!-- 予約投稿一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @posts.present? %>
+          <%= render @posts %>
+        <% else %>
+          <p><%= t('.no_result') %></p>
+        <% end %>
+      </div>
+      <!-- ページネーション -->
+      <div class="row">
+        <div class="col-12">
+          <%= paginate @posts %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

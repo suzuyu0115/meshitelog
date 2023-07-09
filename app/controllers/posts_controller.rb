@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :scheduled]
   before_action :set_post, only: %i[edit update destroy]
 
   def index
@@ -45,6 +46,10 @@ class PostsController < ApplicationController
   def bookmarks
     @q = current_user.bookmark_posts.ransack(params[:q])
     @bookmark_posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+  end
+
+  def scheduled
+    @posts = current_user.posts.where('published_at > ?', Time.current).order(created_at: :desc).page(params[:page])
   end
 
   private
