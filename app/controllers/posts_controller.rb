@@ -1,16 +1,21 @@
 class PostsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :scheduled]
   before_action :set_post, only: %i[edit update destroy]
 
   def index
-    @q = Post.ransack(params[:q])
+    @q = Post.where('published_at IS NULL OR published_at <= ?', Time.current).ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-  def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
+def show
+  @post = Post.find(params[:id])
+  if @post.published_at > Time.current && current_user != @post.user
+    redirect_to posts_path
   end
+  @comment = Comment.new
+  @comments = @post.comments.includes(:user).order(created_at: :desc)
+end
+
 
   def new
     @post = Post.new
@@ -47,6 +52,10 @@ class PostsController < ApplicationController
     @bookmark_posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
+  def scheduled
+    @posts = current_user.posts.where('published_at > ?', Time.current).order(created_at: :desc).page(params[:page])
+  end
+
   private
 
   def set_post
@@ -54,6 +63,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :food_image, :food_image_cache)
+    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at)
   end
 end

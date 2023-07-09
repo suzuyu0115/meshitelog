@@ -12,5 +12,6 @@ ja:
         title: '料理名'
         content: 'コメント'
         food_image: '飯画像'
+        published_at: '投稿日'
       comment:
         body: 'コメント'

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create], shallow: true
     collection do
       get :bookmarks
+      get :scheduled
     end
   end
   resources :bookmarks, only: %i[create destroy]

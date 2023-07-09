@@ -9,6 +9,7 @@ ja:
     line_login: 'LINEでログイン'
     search_word: '飯を探す'
     message:
+      require_login: 'LINEログインが必要です'
       created: "%{item}を作成しました"
       not_created: "%{item}を作成できませんでした"
       updated: "%{item}を更新しました"
@@ -34,6 +35,9 @@ ja:
     bookmarks:
       title: 'お気に入り'
       no_result: 'お気に入りがありません'
+    scheduled:
+      title: '予約投稿一覧'
+      no_result: '予約投稿がありません'
     search:
       title: '探す'
   bookmarks:
