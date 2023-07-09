@@ -7,11 +7,15 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-  def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
+def show
+  @post = Post.find(params[:id])
+  if @post.published_at > Time.current && current_user != @post.user
+    redirect_to posts_path
   end
+  @comment = Comment.new
+  @comments = @post.comments.includes(:user).order(created_at: :desc)
+end
+
 
   def new
     @post = Post.new
