@@ -24,7 +24,7 @@ end
   def edit; end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     @post.author = current_user
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
