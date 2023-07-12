@@ -24,7 +24,8 @@ end
   def edit; end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post = Post.new(post_params)
+    @post.author = current_user
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -63,6 +64,6 @@ end
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at)
+    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at, recipient_ids: [])
   end
 end

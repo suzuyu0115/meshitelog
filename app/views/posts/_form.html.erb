@@ -30,5 +30,10 @@
     <% end %>
   </div>
   <br>
+  <div class="form-group">
+    <%= f.label :recipients %>
+    <%= f.collection_select :recipient_ids, User.all, :id, :name, {}, { multiple: true } %>
+  </div>
+  <br>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
