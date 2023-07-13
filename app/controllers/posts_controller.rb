@@ -58,7 +58,7 @@ end
   end
 
   def received
-    @received_posts = current_user.received_posts.where('published_at IS NULL OR published_at <= ?', Time.current).order(created_at: :desc).page(params[:page])
+    @received_posts = current_user.received_posts.includes(:user).where('published_at IS NULL OR published_at <= ?', Time.current).order(created_at: :desc).page(params[:page])
   end
 
   private
