@@ -26,7 +26,7 @@ class Post < ApplicationRecord
   mount_uploader :food_image, FoodImageUploader
   belongs_to :user
   belongs_to :author, class_name: "User"
-  has_many :deliveries
+  has_many :deliveries, dependent: :destroy
   has_many :recipients, through: :deliveries, source: :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy

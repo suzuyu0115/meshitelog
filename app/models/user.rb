@@ -18,7 +18,7 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :posts, dependent: :destroy
-  has_many :deliveries
+  has_many :deliveries, dependent: :destroy
   has_many :received_posts, through: :deliveries, source: :post
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
