@@ -57,4 +57,9 @@ class User < ApplicationRecord
   def bookmark?(post)
     bookmark_posts.include?(post)
   end
+
+  # nicknameが存在すればそれを返し、なければnameを返す
+  def display_name
+    nickname || name
+  end
 end
