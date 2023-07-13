@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get :bookmarks
       get :scheduled
+      get :received
     end
   end
   resources :bookmarks, only: %i[create destroy]
