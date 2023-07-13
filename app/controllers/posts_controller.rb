@@ -9,10 +9,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    redirect_to posts_path if @post.published_at > Time.current && current_user != @post.user
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
+    # 予約投稿で現在時刻よりも後の投稿で、かつ現在のユーザーが投稿の作成者でない場合
+    if @post.published_at.present? && @post.published_at > Time.current && current_user != @post.user
+      redirect_to posts_path
+    else
+      @comment = Comment.new
+      @comments = @post.comments.includes(:user).order(created_at: :desc)
+    end
   end
+
 
   def new
     @post = Post.new
