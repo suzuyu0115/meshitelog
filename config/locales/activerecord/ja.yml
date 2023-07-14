@@ -13,5 +13,6 @@ ja:
         content: 'コメント'
         food_image: '飯画像'
         published_at: '投稿日'
+        recipients: '送るひと'
       comment:
         body: 'コメント'

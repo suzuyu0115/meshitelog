@@ -38,6 +38,9 @@ ja:
     scheduled:
       title: '予約投稿一覧'
       no_result: '予約投稿がありません'
+    received:
+      title: '受け取った飯一覧'
+      no_result: '受け取った飯がありません'
     search:
       title: '探す'
   bookmarks:

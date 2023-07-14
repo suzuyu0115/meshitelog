@@ -24,9 +24,16 @@
   </div>
   <br>
   <div class="form-group">
-    <% if post.published_at > Time.current %>
+    <% if post.new_record? || (post.published_at.present? && post.published_at > Time.current) %>
       <%= f.label :published_at %>
       <%= f.datetime_field :published_at, class: 'form-control' %>
+    <% end %>
+  </div>
+  <br>
+  <div class="form-group">
+    <% if post.new_record? || (post.published_at.present? && post.published_at > Time.current) %>
+      <%= f.label :recipients %>
+      <%= f.collection_select :recipient_ids, User.all, :id, :display_name, {}, { multiple: true } %>
     <% end %>
   </div>
   <br>

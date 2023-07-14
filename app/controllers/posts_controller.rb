@@ -7,15 +7,16 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-def show
-  @post = Post.find(params[:id])
-  if @post.published_at > Time.current && current_user != @post.user
-    redirect_to posts_path
+  def show
+    @post = Post.find(params[:id])
+    # 予約投稿で現在時刻よりも後の投稿で、かつ現在のユーザーが投稿の作成者でない場合
+    if @post.published_at.present? && @post.published_at > Time.current && current_user != @post.user
+      redirect_to posts_path
+    else
+      @comment = Comment.new
+      @comments = @post.comments.includes(:user).order(created_at: :desc)
+    end
   end
-  @comment = Comment.new
-  @comments = @post.comments.includes(:user).order(created_at: :desc)
-end
-
 
   def new
     @post = Post.new
@@ -25,6 +26,7 @@ end
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.author = current_user
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -56,6 +58,10 @@ end
     @posts = current_user.posts.where('published_at > ?', Time.current).order(created_at: :desc).page(params[:page])
   end
 
+  def received
+    @received_posts = current_user.received_posts.includes(:user).where('published_at IS NULL OR published_at <= ?', Time.current).order(created_at: :desc).page(params[:page])
+  end
+
   private
 
   def set_post
@@ -63,6 +69,6 @@ end
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at)
+    params.require(:post).permit(:title, :content, :food_image, :food_image_cache, :published_at, recipient_ids: [])
   end
 end

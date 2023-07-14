@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_09_082711) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_12_150811) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_082711) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "deliveries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_deliveries_on_post_id"
+    t.index ["user_id"], name: "index_deliveries_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -42,6 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_082711) do
     t.bigint "user_id"
     t.string "food_image"
     t.datetime "published_at"
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -60,5 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_09_082711) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "deliveries", "posts"
+  add_foreign_key "deliveries", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "posts", "users", column: "author_id"
 end

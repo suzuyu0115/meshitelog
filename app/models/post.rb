@@ -9,19 +9,25 @@
 #  title        :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  author_id    :bigint           not null
 #  user_id      :bigint
 #
 # Indexes
 #
-#  index_posts_on_user_id  (user_id)
+#  index_posts_on_author_id  (author_id)
+#  index_posts_on_user_id    (user_id)
 #
 # Foreign Keys
 #
+#  fk_rails_...  (author_id => users.id)
 #  fk_rails_...  (user_id => users.id)
 #
 class Post < ApplicationRecord
   mount_uploader :food_image, FoodImageUploader
   belongs_to :user
+  belongs_to :author, class_name: "User"
+  has_many :deliveries, dependent: :destroy
+  has_many :recipients, through: :deliveries, source: :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 

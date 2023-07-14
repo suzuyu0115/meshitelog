@@ -18,6 +18,8 @@
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :posts, dependent: :destroy
+  has_many :deliveries, dependent: :destroy
+  has_many :received_posts, through: :deliveries, source: :post
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_posts, through: :bookmarks, source: :post
@@ -54,5 +56,10 @@ class User < ApplicationRecord
   # ブックマークをしているか判定する
   def bookmark?(post)
     bookmark_posts.include?(post)
+  end
+
+  # nicknameが存在すればそれを返し、なければnameを返す
+  def display_name
+    nickname || name
   end
 end
