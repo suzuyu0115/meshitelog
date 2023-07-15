@@ -34,11 +34,20 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :content, presence: true, length: { maximum: 65_535 }
 
+  after_create_commit :notify_line
+
   def self.ransackable_associations(_auth_object = nil)
     ["bookmarks", "comments", "user"]
   end
 
   def self.ransackable_attributes(_auth_object = nil)
     ["content", "created_at", "title"]
+  end
+
+  def notify_line
+    line_client = LineClient.new
+    self.deliveries.each do |delivery|
+      line_client.push_message(delivery.user.uid, "新しい投稿があります: #{self.title}")
+    end
   end
 end
