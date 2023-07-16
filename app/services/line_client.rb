@@ -14,6 +14,6 @@ class LineClient
       text: message
     }
 
-    response = @client.push_message(user_id, message)
+    @client.push_message(user_id, message)
   end
 end
