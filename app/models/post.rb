@@ -46,22 +46,22 @@ class Post < ApplicationRecord
     ["content", "created_at", "title"]
   end
 
-def notify_line
-  # 予約投稿か否かを判定
-  return unless self.published?
+  def notify_line
+    # 予約投稿か否かを判定
+    return unless published?
 
-  line_client = LineClient.new
-  self.deliveries.each do |delivery|
-    line_client.push_message(delivery.user.uid, "新しい投稿があります: #{self.title}")
+    line_client = LineClient.new
+    deliveries.each do |delivery|
+      line_client.push_message(delivery.user.uid, "新しい投稿があります: #{title}")
+    end
   end
-end
 
   def schedule_publication
     # `published_at`が設定されていれば予約投稿、そうでなければ即時投稿
-    if self.published_at.present?
-      PublishPostJob.set(wait_until: self.published_at).perform_later(self)
+    if published_at.present?
+      PublishPostJob.set(wait_until: published_at).perform_later(self)
     else
-      self.update(published: true)
+      update(published: true)
       notify_line
     end
   end
