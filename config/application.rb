@@ -45,5 +45,8 @@ module Meshitelog
     # タイムゾーンの設定
     config.time_zone = "Tokyo"
     config.active_record.default_timezone = :local
+
+    # アダプターをSidekiqに設定
+    config.active_job.queue_adapter = :sidekiq
   end
 end
