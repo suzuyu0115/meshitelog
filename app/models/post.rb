@@ -53,7 +53,7 @@ class Post < ApplicationRecord
 
   # 各投稿詳細ページのURLを返す
   def post_url
-    "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+    "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
   end
 
   # Twitterシェアの文章を生成
@@ -86,13 +86,13 @@ class Post < ApplicationRecord
         },
         hero: {
           type: "image",
-          url: "https://s3.ap-northeast-1.amazonaws.com/meshitelog/uploads/post/food_image/7/IMG_0926.jpeg?X-Amz-Expires=600&X-Amz-Date=20230718T084613Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA32YGJWQTPORZU774%2F20230718%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=601f1730f90deb643016c4d0f12c622cc26bb401e8b8bd145772497221e9eca0",
+          url: food_image.url,
           size: "full",
           aspectRatio: "20:13",
           aspectMode: "cover",
           action: {
             type: "uri",
-            uri: "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+            uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
           }
         },
         body: {
@@ -158,7 +158,7 @@ class Post < ApplicationRecord
               action: {
                 type: "uri",
                 label: "詳細を見る",
-                uri: "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+                uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
               }
             },
             {
@@ -183,7 +183,7 @@ class Post < ApplicationRecord
       }
 
       deliveries.each do |delivery|
-        line_client.push_flex_message(delivery.user.uid, "新しい投稿があります: #{title}", flex_contents)
+        line_client.push_flex_message(delivery.user.uid, "飯が届きました！： #{title}", flex_contents)
       end
     end
 
