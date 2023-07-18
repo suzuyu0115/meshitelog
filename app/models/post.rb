@@ -73,6 +73,28 @@ class Post < ApplicationRecord
       line_client = LineClient.new
       flex_contents = {
         type: "bubble",
+        header: {
+          type: 'box',
+          layout: 'vertical',
+          contents: [
+            {
+              type: 'text',
+              text: "飯が届きました！",
+              wrap: true
+            },
+          ]
+        },
+        hero: {
+          type: "image",
+          url: "https://s3.ap-northeast-1.amazonaws.com/meshitelog/uploads/post/food_image/7/IMG_0926.jpeg?X-Amz-Expires=600&X-Amz-Date=20230718T084613Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA32YGJWQTPORZU774%2F20230718%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=601f1730f90deb643016c4d0f12c622cc26bb401e8b8bd145772497221e9eca0",
+          size: "full",
+          aspectRatio: "20:13",
+          aspectMode: "cover",
+          action: {
+            type: "uri",
+            uri: "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+          }
+        },
         body: {
           type: "box",
           layout: "vertical",
