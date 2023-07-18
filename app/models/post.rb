@@ -80,6 +80,8 @@ class Post < ApplicationRecord
             {
               type: 'text',
               text: "飯が届きました！",
+              weight: "bold",
+              size: "xl",
               wrap: true
             },
           ]
