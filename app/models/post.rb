@@ -47,14 +47,82 @@ class Post < ApplicationRecord
   end
 
   def notify_line
-    # 予約投稿か否かを判定
-    return unless published?
+      # 予約投稿か否かを判定
+      return unless published?
 
-    line_client = LineClient.new
-    deliveries.each do |delivery|
-      line_client.push_message(delivery.user.uid, "新しい投稿があります: #{title}")
+      line_client = LineClient.new
+      flex_contents = {
+        type: "bubble",
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "新しい投稿があります",
+              weight: "bold",
+              size: "xl"
+            },
+            {
+              type: "box",
+              layout: "vertical",
+              margin: "lg",
+              spacing: "sm",
+              contents: [
+                {
+                  type: "box",
+                  layout: "baseline",
+                  spacing: "sm",
+                  contents: [
+                    {
+                      type: "text",
+                      text: "タイトル",
+                      color: "#aaaaaa",
+                      size: "sm",
+                      flex: 1
+                    },
+                    {
+                      type: "text",
+                      text: title,
+                      wrap: true,
+                      color: "#666666",
+                      size: "sm",
+                      flex: 5
+                    }
+                  ]
+                },
+                {
+                  type: "box",
+                  layout: "baseline",
+                  spacing: "sm",
+                  contents: [
+                    {
+                      type: "text",
+                      text: "内容",
+                      color: "#aaaaaa",
+                      size: "sm",
+                      flex: 1
+                    },
+                    {
+                      type: "text",
+                      text: content,
+                      wrap: true,
+                      color: "#666666",
+                      size: "sm",
+                      flex: 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+
+      deliveries.each do |delivery|
+        line_client.push_flex_message(delivery.user.uid, "新しい投稿があります: #{title}", flex_contents)
+      end
     end
-  end
 
   def schedule_publication
     # `published_at`が設定されていれば予約投稿、そうでなければ即時投稿
