@@ -46,6 +46,26 @@ class Post < ApplicationRecord
     ["content", "created_at", "title"]
   end
 
+  # nicknameがあればnicknameを、なければnameを返す
+  def sender_name
+    self.user.nickname || self.user.name
+  end
+
+  # 各投稿詳細ページのURLを返す
+  def post_url
+    "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+  end
+
+  # Twitterシェアの文章を生成
+  def share_text
+    "#{title} を飯テロされました！ #飯テログ #{post_url}"
+  end
+
+  # TwitterシェアURLを生成
+  def twitter_share_url
+    "https://twitter.com/intent/tweet?text=#{share_text}"
+  end
+
   def notify_line
       # 予約投稿か否かを判定
       return unless published?
@@ -59,9 +79,10 @@ class Post < ApplicationRecord
           contents: [
             {
               type: "text",
-              text: "新しい投稿があります",
+              text: title,
               weight: "bold",
-              size: "xl"
+              size: "xl",
+              wrap: true
             },
             {
               type: "box",
@@ -76,14 +97,7 @@ class Post < ApplicationRecord
                   contents: [
                     {
                       type: "text",
-                      text: "タイトル",
-                      color: "#aaaaaa",
-                      size: "sm",
-                      flex: 1
-                    },
-                    {
-                      type: "text",
-                      text: title,
+                      text: "#{sender_name} さんより",
                       wrap: true,
                       color: "#666666",
                       size: "sm",
@@ -98,17 +112,10 @@ class Post < ApplicationRecord
                   contents: [
                     {
                       type: "text",
-                      text: "内容",
-                      color: "#aaaaaa",
-                      size: "sm",
-                      flex: 1
-                    },
-                    {
-                      type: "text",
                       text: content,
                       wrap: true,
                       color: "#666666",
-                      size: "sm",
+                      size: "md",
                       flex: 5
                     }
                   ]
@@ -116,6 +123,40 @@ class Post < ApplicationRecord
               ]
             }
           ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          spacing: "sm",
+          contents: [
+            {
+              type: "button",
+              style: "link",
+              height: "sm",
+              action: {
+                type: "uri",
+                label: "詳細を見る",
+                uri: "https://9471-125-30-184-70.ngrok-free.app/posts/#{self.id}"
+              }
+            },
+            {
+              type: "button",
+              style: "link",
+              height: "sm",
+              action: {
+                type: "uri",
+                uri: "https://twitter.com/home",
+                label: "シェア"
+              }
+            },
+            {
+              type: "box",
+              layout: "vertical",
+              contents: [],
+              margin: "sm"
+            }
+          ],
+          flex: 0
         }
       }
 
