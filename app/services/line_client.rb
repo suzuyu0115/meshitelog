@@ -16,4 +16,14 @@ class LineClient
 
     @client.push_message(user_id, message)
   end
+
+  def push_flex_message(user_id, alt_text, contents)
+    message = {
+      type: 'flex',
+      altText: alt_text,
+      contents: contents
+    }
+
+    @client.push_message(user_id, message)
+  end
 end

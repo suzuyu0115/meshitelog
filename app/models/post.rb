@@ -46,15 +46,148 @@ class Post < ApplicationRecord
     ["content", "created_at", "title"]
   end
 
-  def notify_line
-    # 予約投稿か否かを判定
-    return unless published?
-
-    line_client = LineClient.new
-    deliveries.each do |delivery|
-      line_client.push_message(delivery.user.uid, "新しい投稿があります: #{title}")
-    end
+  # nicknameがあればnicknameを、なければnameを返す
+  def sender_name
+    self.user.nickname || self.user.name
   end
+
+  # 各投稿詳細ページのURLを返す
+  def post_url
+    "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
+  end
+
+  # Twitterシェアの文章を生成
+  def share_text
+    "#{title} を飯テロされました！ #飯テログ #{post_url}"
+  end
+
+  # TwitterシェアURLを生成
+  def twitter_share_url
+    "https://twitter.com/intent/tweet?text=#{share_text}"
+  end
+
+  def notify_line
+      # 予約投稿か否かを判定
+      return unless published?
+
+      line_client = LineClient.new
+      flex_contents = {
+        type: "bubble",
+        header: {
+          type: 'box',
+          layout: 'vertical',
+          contents: [
+            {
+              type: 'text',
+              text: "飯が届きました！",
+              weight: "bold",
+              size: "xl",
+              wrap: true
+            },
+          ]
+        },
+        hero: {
+          type: "image",
+          url: food_image.url,
+          size: "full",
+          aspectRatio: "20:13",
+          aspectMode: "cover",
+          action: {
+            type: "uri",
+            uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
+          }
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: title,
+              weight: "bold",
+              size: "xl",
+              wrap: true
+            },
+            {
+              type: "box",
+              layout: "vertical",
+              margin: "lg",
+              spacing: "sm",
+              contents: [
+                {
+                  type: "box",
+                  layout: "baseline",
+                  spacing: "sm",
+                  contents: [
+                    {
+                      type: "text",
+                      text: "#{sender_name} さんより",
+                      wrap: true,
+                      color: "#666666",
+                      size: "sm",
+                      flex: 5
+                    }
+                  ]
+                },
+                {
+                  type: "box",
+                  layout: "baseline",
+                  spacing: "sm",
+                  contents: [
+                    {
+                      type: "text",
+                      text: content,
+                      wrap: true,
+                      color: "#666666",
+                      size: "md",
+                      flex: 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          spacing: "sm",
+          contents: [
+            {
+              type: "button",
+              style: "link",
+              height: "sm",
+              action: {
+                type: "uri",
+                label: "詳細を見る",
+                uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
+              }
+            },
+            {
+              type: "button",
+              style: "link",
+              height: "sm",
+              action: {
+                type: "uri",
+                uri: "https://twitter.com/home",
+                label: "シェア"
+              }
+            },
+            {
+              type: "box",
+              layout: "vertical",
+              contents: [],
+              margin: "sm"
+            }
+          ],
+          flex: 0
+        }
+      }
+
+      deliveries.each do |delivery|
+        line_client.push_flex_message(delivery.user.uid, "飯が届きました！： #{title}", flex_contents)
+      end
+    end
 
   def schedule_publication
     # `published_at`が設定されていれば予約投稿、そうでなければ即時投稿
