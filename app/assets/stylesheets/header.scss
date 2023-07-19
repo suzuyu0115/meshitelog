@@ -1,3 +1,14 @@
 header {
   background-color: #FFA500;
 }
+
+.line_login_button {
+  background-color: #00B900;
+  color: white;
+}
+
+.line_login_button:hover {
+  background-color: #008800;
+  color: white;
+  opacity: 0.9;
+}
