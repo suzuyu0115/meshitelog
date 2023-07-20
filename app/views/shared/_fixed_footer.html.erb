@@ -1,17 +1,17 @@
 <footer class="fixed-bottom">
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <div class='collapse navbar-collapse'>
-      <ul class='navbar-nav ml-auto main-nav align-items-center'>
-        <li class='nav-item'>
+  <nav class='navbar navbar-expand navigation navbar-light bg-light'>
+    <div class='container-fluid'>
+      <ul class='navbar-nav d-flex justify-content-center main-nav align-items-center w-100'>
+        <li class='nav-item flex-grow-1 text-center'>
           <%= link_to t('defaults.index'), posts_path, class: 'dropdown-item' %>
         </li>
-        <li class='nav-item'>
+        <li class='nav-item flex-grow-1 text-center'>
           <%= link_to t('posts.new.title'), new_post_path, class: 'dropdown-item' %>
         </li>
-        <li class='nav-item'>
+        <li class='nav-item flex-grow-1 text-center'>
           <%= link_to t('posts.received.title'), received_posts_path, class: 'dropdown-item' %>
         </li>
-        <li class='nav-item'>
+        <li class='nav-item flex-grow-1 text-center'>
           <%= link_to t('posts.scheduled.title'), scheduled_posts_path, class: 'dropdown-item' %>
         </li>
       </ul>
