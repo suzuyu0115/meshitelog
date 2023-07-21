@@ -1,18 +1,30 @@
 <footer class="fixed-bottom">
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ml-auto main-nav align-items-center'>
-        <li class='nav-item'>
-          <%= link_to t('defaults.index'), posts_path, class: 'dropdown-item' %>
+  <nav class='navbar navbar-expand navigation navbar-light bg-light'>
+    <div class='container-fluid'>
+      <ul class='navbar-nav d-flex justify-content-center main-nav align-items-center w-100'>
+        <li class='nav-item flex-grow-1 text-center'>
+          <%= link_to posts_path, class: 'dropdown-item d-flex flex-column align-items-center' do %>
+            <i class="fa-solid fa-bowl-food fs-5"></i>
+            <%= t('defaults.index') %>
+          <% end %>
         </li>
-        <li class='nav-item'>
-          <%= link_to t('posts.new.title'), new_post_path, class: 'dropdown-item' %>
+        <li class='nav-item flex-grow-1 text-center'>
+          <%= link_to new_post_path, class: 'dropdown-item d-flex flex-column align-items-center' do %>
+            <i class="bi bi-send-fill fs-5"></i>
+            <%= t('posts.new.title') %>
+          <% end %>
         </li>
-        <li class='nav-item'>
-          <%= link_to t('posts.received.title'), received_posts_path, class: 'dropdown-item' %>
+        <li class='nav-item flex-grow-1 text-center'>
+          <%= link_to received_posts_path, class: 'dropdown-item d-flex flex-column align-items-center' do %>
+            <i class="bi bi-gift-fill fs-5"></i>
+            <%= t('posts.received.title') %>
+          <% end %>
         </li>
-        <li class='nav-item'>
-          <%= link_to t('posts.scheduled.title'), scheduled_posts_path, class: 'dropdown-item' %>
+        <li class='nav-item flex-grow-1 text-center'>
+          <%= link_to scheduled_posts_path, class: 'dropdown-item d-flex flex-column align-items-center' do %>
+            <i class="bi bi-calendar-check-fill fs-5"></i>
+            <%= t('posts.scheduled.title') %>
+          <% end %>
         </li>
       </ul>
     </div>
