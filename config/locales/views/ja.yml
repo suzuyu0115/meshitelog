@@ -16,6 +16,9 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+  static_pages:
+    tutorial:
+      title: '「飯テログ」とは？'
   sessions:
     create:
       success: 'ログインしました'

@@ -6,4 +6,6 @@ class StaticPagesController < ApplicationController
       render 'top'
     end
   end
+
+  def tutorial; end
 end
