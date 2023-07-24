@@ -1,9 +1,4 @@
 .top-wrapper {
-  background-image: url("top.jpg");
-  height: calc(100vh - 134px);
-  position: relative;
-  background-position: center;
-
   .top-inner-text {
     position: absolute;
     top: 50%;
@@ -18,4 +13,33 @@
       font-size: 2.0rem;
     }
   }
+}
+
+#slideshow {
+  position: relative;
+  width: 100vw;  /* 枠の幅をビューポートの幅いっぱいに設定 */
+  padding-top: 66.66%;  /* 幅の2/3に相当する高さを設定 */
+  overflow: hidden;  /* 枠からはみ出した部分を非表示にする */
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  /* 枠全体に広がるように設定 */
+  height: 100%;  /* 枠全体に広がるように設定 */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.slide img {
+  width: 100%;  /* img要素が枠全体に広がるように設定 */
+  height: 100%;  /* img要素が枠全体に広がるように設定 */
+  object-fit: cover;  /* img要素が枠に収まるように調整、画像のアスペクト比を維持 */
+  object-position: center;  /* img要素が切り出される場合に中心を基準にする */
+}
+
+
+.slide.active {
+  opacity: 1;
 }
