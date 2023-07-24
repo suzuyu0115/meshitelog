@@ -19,8 +19,16 @@
 #slideshow {
   position: relative;
   width: 100vw;
-  padding-top: 44.44%;
+  height: 100vh;
+  /* ここを変更 */
   overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  #slideshow {
+    height:   100vh;
+    /* スマホ画面時の高さを調整 */
+  }
 }
 
 .slide {
