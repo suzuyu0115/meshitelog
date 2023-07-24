@@ -8,6 +8,7 @@
     text-align: center;
     font-size: 3rem;
     color: white;
+    z-index: 1;
 
     @media screen and (max-width: 767px) {
       font-size: 2.0rem;
@@ -17,29 +18,28 @@
 
 #slideshow {
   position: relative;
-  width: 100vw;  /* 枠の幅をビューポートの幅いっぱいに設定 */
-  padding-top: 66.66%;  /* 幅の2/3に相当する高さを設定 */
-  overflow: hidden;  /* 枠からはみ出した部分を非表示にする */
+  width: 100vw;
+  padding-top: 44.44%;
+  overflow: hidden;
 }
 
 .slide {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;  /* 枠全体に広がるように設定 */
-  height: 100%;  /* 枠全体に広がるように設定 */
-  opacity: 0;
-  transition: opacity 1s;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .slide img {
-  width: 100%;  /* img要素が枠全体に広がるように設定 */
-  height: 100%;  /* img要素が枠全体に広がるように設定 */
-  object-fit: cover;  /* img要素が枠に収まるように調整、画像のアスペクト比を維持 */
-  object-position: center;  /* img要素が切り出される場合に中心を基準にする */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 1s;
 }
 
-
-.slide.active {
-  opacity: 1;
+.slide:not(.active) img {
+  opacity: 0;
 }

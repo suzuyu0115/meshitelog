@@ -1,10 +1,11 @@
-var slides = document.querySelectorAll('#slideshow .slide');
-var currentSlide = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll("#slideshow .slide");
+  let currentSlide = 0;
+  const slideInterval = setInterval(nextSlide, 3000); // 3秒ごとに次のスライドに移動
 
-function changeSlide() {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}
-
-setInterval(changeSlide, 2000); // 2秒ごとに切り替え
+  function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+});
