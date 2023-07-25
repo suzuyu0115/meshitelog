@@ -1,9 +1,15 @@
 <tr id="comment-25">
   <td style="width: 60px">
-    <%= image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50' %>
+    <%= image_tag comment.user.avatar.url, class: 'rounded-circle', size: '50x50' %>
   </td>
   <td>
-    <h3 class="small"><%= comment.user.name %></h3>
+    <h3 class="small">
+      <% if comment.user.nickname.present? %>
+        <%= comment.user.nickname %>
+      <% else %>
+        <%= comment.user.name %>
+      <% end %>
+    </h3>
     <div id="js-comment-25">
       <p><%= simple_format(comment.body) %></p>
     </div>

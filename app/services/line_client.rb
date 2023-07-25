@@ -21,7 +21,7 @@ class LineClient
     message = {
       type: 'flex',
       altText: alt_text,
-      contents: contents
+      contents:
     }
 
     @client.push_message(user_id, message)

@@ -48,12 +48,12 @@ class Post < ApplicationRecord
 
   # nicknameがあればnicknameを、なければnameを返す
   def sender_name
-    self.user.nickname || self.user.name
+    user.nickname || user.name
   end
 
   # 各投稿詳細ページのURLを返す
   def post_url
-    "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
+    "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
   end
 
   # Twitterシェアの文章を生成
@@ -67,127 +67,127 @@ class Post < ApplicationRecord
   end
 
   def notify_line
-      # 予約投稿か否かを判定
-      return unless published?
+    # 予約投稿か否かを判定
+    return unless published?
 
-      line_client = LineClient.new
-      flex_contents = {
-        type: "bubble",
-        header: {
-          type: 'box',
-          layout: 'vertical',
-          contents: [
-            {
-              type: 'text',
-              text: "飯が届きました！",
-              weight: "bold",
-              size: "xl",
-              wrap: true
-            },
-          ]
-        },
-        hero: {
-          type: "image",
-          url: food_image.url,
-          size: "full",
-          aspectRatio: "20:13",
-          aspectMode: "cover",
-          action: {
-            type: "uri",
-            uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
+    line_client = LineClient.new
+    flex_contents = {
+      type: "bubble",
+      header: {
+        type: 'box',
+        layout: 'vertical',
+        contents: [
+          {
+            type: 'text',
+            text: "飯が届きました！",
+            weight: "bold",
+            size: "xl",
+            wrap: true
           }
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: title,
-              weight: "bold",
-              size: "xl",
-              wrap: true
-            },
-            {
-              type: "box",
-              layout: "vertical",
-              margin: "lg",
-              spacing: "sm",
-              contents: [
-                {
-                  type: "box",
-                  layout: "baseline",
-                  spacing: "sm",
-                  contents: [
-                    {
-                      type: "text",
-                      text: "#{sender_name} さんより",
-                      wrap: true,
-                      color: "#666666",
-                      size: "sm",
-                      flex: 5
-                    }
-                  ]
-                },
-                {
-                  type: "box",
-                  layout: "baseline",
-                  spacing: "sm",
-                  contents: [
-                    {
-                      type: "text",
-                      text: content,
-                      wrap: true,
-                      color: "#666666",
-                      size: "md",
-                      flex: 5
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        footer: {
-          type: "box",
-          layout: "vertical",
-          spacing: "sm",
-          contents: [
-            {
-              type: "button",
-              style: "link",
-              height: "sm",
-              action: {
-                type: "uri",
-                label: "詳細を見る",
-                uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{self.id}"
-              }
-            },
-            {
-              type: "button",
-              style: "link",
-              height: "sm",
-              action: {
-                type: "uri",
-                uri: "https://twitter.com/home",
-                label: "シェア"
-              }
-            },
-            {
-              type: "box",
-              layout: "vertical",
-              contents: [],
-              margin: "sm"
-            }
-          ],
-          flex: 0
+        ]
+      },
+      hero: {
+        type: "image",
+        url: food_image.url,
+        size: "full",
+        aspectRatio: "20:13",
+        aspectMode: "cover",
+        action: {
+          type: "uri",
+          uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
         }
+      },
+      body: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "text",
+            text: title,
+            weight: "bold",
+            size: "xl",
+            wrap: true
+          },
+          {
+            type: "box",
+            layout: "vertical",
+            margin: "lg",
+            spacing: "sm",
+            contents: [
+              {
+                type: "box",
+                layout: "baseline",
+                spacing: "sm",
+                contents: [
+                  {
+                    type: "text",
+                    text: "#{sender_name} さんより",
+                    wrap: true,
+                    color: "#666666",
+                    size: "sm",
+                    flex: 5
+                  }
+                ]
+              },
+              {
+                type: "box",
+                layout: "baseline",
+                spacing: "sm",
+                contents: [
+                  {
+                    type: "text",
+                    text: content,
+                    wrap: true,
+                    color: "#666666",
+                    size: "md",
+                    flex: 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      footer: {
+        type: "box",
+        layout: "vertical",
+        spacing: "sm",
+        contents: [
+          {
+            type: "button",
+            style: "link",
+            height: "sm",
+            action: {
+              type: "uri",
+              label: "詳細を見る",
+              uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
+            }
+          },
+          {
+            type: "button",
+            style: "link",
+            height: "sm",
+            action: {
+              type: "uri",
+              uri: "https://twitter.com/home",
+              label: "シェア"
+            }
+          },
+          {
+            type: "box",
+            layout: "vertical",
+            contents: [],
+            margin: "sm"
+          }
+        ],
+        flex: 0
       }
+    }
 
-      deliveries.each do |delivery|
-        line_client.push_flex_message(delivery.user.uid, "飯が届きました！： #{title}", flex_contents)
-      end
+    deliveries.each do |delivery|
+      line_client.push_flex_message(delivery.user.uid, "飯が届きました！： #{title}", flex_contents)
     end
+  end
 
   def schedule_publication
     # `published_at`が設定されていれば予約投稿、そうでなければ即時投稿

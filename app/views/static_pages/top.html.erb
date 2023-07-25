@@ -1,6 +1,62 @@
-<div class='top-wrapper'>
-  <div class='top-inner-text'>
-    <h1><%= t('defaults.app_name') %></h1>
-        <%= link_to t('defaults.line_login'), "/auth/line", class: "btn line_login_button" %>
+<div class="top-wrapper">
+  <div id="slideshow">
+    <div class="slide-wrapper">
+      <div class="slide"><%= image_tag 'food1.jpg' %></div>
+      <div class="slide"><%= image_tag 'food2.jpg' %></div>
+      <div class="slide"><%= image_tag 'food3.jpg' %></div>
+      <div class="slide"><%= image_tag 'food7.jpg' %></div>
+      <div class="slide"><%= image_tag 'food9.jpg' %></div>
+      <div class="slide"><%= image_tag 'food10.jpg' %></div>
+    </div>
+    <div class="top-inner-text">
+      <h1 class="pb-2 app_title"><%= t('defaults.app_name') %></h1>
+      <h4 class="pb-2 app_title">食欲を刺激する飯テロの世界へ</h4>
+      <%= link_to t('defaults.line_login'), "/auth/line", class: "btn line_login_button" %>
+      <%= link_to t('defaults.posts'), posts_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+
+  <div class="top-about center-block bg-light py-5">
+    <div class="col-lg-6 offset-lg-3 mt-2">
+      <h3 class="text-center mb-4 border-bottom pb-3">「飯テロ」とは</h3>
+      <p class="px-5">「飯テロ」とは、美味しそうな料理の画像や情報を他の人に見せることで、食欲を刺激し、食べたくなる気持ちを生み出す行為のことを指します。<br></p>
+      <p class="px-5">「飯テログ」は、そんな飯テロを気軽に行えるアプリです。<br>
+      飯テロを通じて、食欲を刺激し、食べたくなる気持ちを生み出しましょう！
+      </p>
+    </div>
+  </div>
+  <div class="top-content center-block pt-5 pb-3">
+    <div class="col-lg-6 offset-lg-3 mt-2">
+      <h3 class="text-center mb-4 border-bottom pb-3">使い方</h3>
+      <div class="card mb-5 p-5">
+      <h4 class="text-center card-title mb-3 border-bottom pb-3">友達追加しよう！</h4>
+      <p><b><font color="green">「飯テログ」を友達追加、LINE認証</font>して飯テロをする準備を整えましょう！</b><br>
+      メールアドレスやパスワードの入力が不要なので、スムーズに登録が行えます</p>
+      </div>
+      <div class="card mb-5 p-5">
+      <h4 class="text-center card-title mb-3 border-bottom pb-3">投稿しよう！</h4>
+      <p><b><font color="#ff0000">「投稿作成」</font> から飯を投稿しましょう！</b><br>
+      あの時食べて美味しかったもの、印象に残っている料理などを皆に共有しましょう！</p>
+      </div>
+      <div class="card mb-5 p-5">
+      <h4 class="text-center card-title mb-3 border-bottom pb-3">送り相手を選ぼう！</h4>
+      <p>投稿は、<b>送り相手を選んで送ることもできます！</b><br>
+      送られた側は「届いた飯」リストから受け取った飯の確認ができます。</p>
+      </div>
+      <div class="card mb-2 p-5">
+      <h4 class="text-center card-title mb-3 border-bottom pb-3">LINEで飯の確認！</h4>
+      <p>送った飯は、送られた側に<b><font color="green">画像付きのLINE通知</font>として届きます！</b><br>
+      夜やお腹の空いてる時間に送りつけることで、嫌がらせになること間違い無し！</p>
+      </div>
+    </div>
+  </div>
+  <div class="top-bootom center-block bg-light">
+    <div class="mt-3 py-5">
+      <div class="col-lg-6 offset-lg-3">
+        <h3 class="text-center mb-4 border-bottom pb-3">友達追加して早速使ってみる</h3>
+        <div class="text-center mb-3">
+        <a href="https://lin.ee/zckTAAt"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="50" border="0"></a>
+      </div>
+    </div>
   </div>
 </div>
