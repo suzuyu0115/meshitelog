@@ -4,6 +4,7 @@ ja:
     logout: 'ログアウト'
     copyright: 'Copyright © 2023. 飯テログ'
     post: '投稿'
+    posts: 'みんなの投稿を見る'
     index: '一覧'
     edit: '編集'
     line_login: 'LINEでログイン'
