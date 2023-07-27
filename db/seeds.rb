@@ -1,8 +1,7 @@
 10.times do                            # userのダミーデータ
   User.create!(
     name: Faker::Games::Pokemon.name,
-    uid: Faker::Games::Pokemon.location,
-    provider: Faker::Games::Pokemon.move
+    line_user_id: Faker::Games::Pokemon.location,
   )
 end
 

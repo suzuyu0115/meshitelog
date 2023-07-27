@@ -2,18 +2,13 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  avatar     :string
-#  name       :string           not null
-#  nickname   :string
-#  provider   :string           not null
-#  uid        :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
+#  id           :bigint           not null, primary key
+#  avatar       :string
+#  name         :string           not null
+#  nickname     :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  line_user_id :string
 #
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
@@ -25,8 +20,6 @@ class User < ApplicationRecord
   has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :name, presence: true
-  validates :provider, presence: true
-  validates :uid, presence: true, uniqueness: { scope: :provider }
 
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]
