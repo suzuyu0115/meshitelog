@@ -1,4 +1,4 @@
-<tr id="comment-25">
+<tr>
   <td style="width: 60px">
     <%= image_tag comment.user.avatar.url, class: 'rounded-circle', size: '50x50' %>
   </td>
@@ -13,26 +13,19 @@
     <div id="js-comment-25">
       <p><%= simple_format(comment.body) %></p>
     </div>
-    <div style="display: none;">
-      <textarea class="form-control mb-1"><%= simple_format(comment.body) %></textarea>
-      <button class="btn btn-light">キャンセル</button>
-      <button class="btn btn-success">更新</button>
-    </div>
   </td>
 
   <% if current_user && current_user.own?(comment) %>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
-          <a href="#"><i class='fa fa-pencil'></i></a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">
+          <%= link_to comment_path(comment),
+                      class: 'link-color-black',
+                      data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') } do %>
             <i class="fa fa-trash"></i>
-          </a>
+          <% end %>
         </li>
       </ul>
     </td>
   <% end %>
-
 </tr>
