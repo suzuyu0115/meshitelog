@@ -5,7 +5,7 @@
     <% end %>
   </li>
   <li class="list-inline-item">
-    <%= link_to post_path(post), id: 'button-delete-#{post.id}', data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }  do %>
+    <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }  do %>
       <i class="bi bi-trash"></i>
     <% end %>
   </li>
