@@ -8,24 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   liff
     .ready.then(() => {
-      const idToken = liff.getIDToken()
-      const body = `idToken=${idToken}`
-      const request = new Request('/user', {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-          'X-CSRF-Token': token
-        },
-        method: 'POST',
-        body: body
-      });
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        liff.getProfile().then(profile => {
+          const idToken = liff.getIDToken()
+          const name = profile.displayName
+          const body = `idToken=${idToken}&name=${name}`
+          const request = new Request('/user', {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+              'X-CSRF-Token': token
+            },
+            method: 'POST',
+            body: body
+          });
 
-      fetch(request)
-        .then(response => response.json())
-        .then(data => {
-          data_id = data
+          fetch(request)
+            .then(response => response.json())
+            .then(data => {
+              data_id = data
+            })
+            .then(() => {
+              window.location = '/posts'
+            })
         })
-        .then(() => {
-          window.location = '/posts'
-        })
+      }
     })
 })
