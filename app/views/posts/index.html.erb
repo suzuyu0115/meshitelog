@@ -10,21 +10,23 @@
   </div>
 
   <!-- 投稿一覧 -->
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <% if @posts.present? %>
-          <%= render @posts %>
-        <% else %>
-          <p><%= t('.no_result') %></p>
-        <% end %>
-      </div>
-      <!-- ページネーション -->
-      <div class="row">
-        <div class="col-12">
-          <%= paginate @posts %>
+  <%= turbo_frame_tag 'posts-list' do %>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <% if @posts.present? %>
+            <%= render @posts %>
+          <% else %>
+            <p><%= t('.no_result') %></p>
+          <% end %>
+        </div>
+        <!-- ページネーション -->
+        <div class="row">
+          <div class="col-12">
+            <%= paginate @posts %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
