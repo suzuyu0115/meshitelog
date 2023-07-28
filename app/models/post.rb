@@ -185,7 +185,7 @@ class Post < ApplicationRecord
     }
 
     deliveries.each do |delivery|
-      line_client.push_flex_message(delivery.user.uid, "飯が届きました！： #{title}", flex_contents)
+      line_client.push_flex_message(delivery.user.line_user_id, "飯が届きました！： #{title}", flex_contents)
     end
   end
 

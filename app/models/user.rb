@@ -25,16 +25,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def self.find_or_create_from_auth(auth)
-    provider = auth[:provider]
-    uid = auth[:uid]
-    name = auth[:info][:name]
-
-    user = find_or_initialize_by(provider:, uid:)
-    user.name = name
-    user.save ? user : nil
-  end
-
   # current_userか否かを判別するロジック
   def own?(object)
     object.user_id == id
