@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  resource :user, only: %i[new create destroy]
 
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
@@ -15,7 +14,9 @@ Rails.application.routes.draw do
       get :received
     end
   end
+
   resources :bookmarks, only: %i[create destroy]
+
   resource :profile, only: %i[show edit update]
 
   require "sidekiq/web"

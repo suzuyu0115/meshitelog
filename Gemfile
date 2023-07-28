@@ -51,11 +51,6 @@ gem "sassc-rails"
 # 環境変数
 gem 'dotenv-rails'
 
-# 認証周り
-gem 'omniauth'
-gem 'omniauth-rails_csrf_protection', '~> 0.1.1'
-gem 'omniauth-line'
-
 # 日本語化対応
 gem 'rails-i18n'
 

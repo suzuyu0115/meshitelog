@@ -17,10 +17,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
-  sessions:
-    create:
-      success: 'ログインしました'
-      fail: 'ログインに失敗しました'
+  users:
     destroy:
       success: 'ログアウトしました'
   posts:

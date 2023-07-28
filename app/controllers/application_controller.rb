@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
       redirect_back(fallback_location: posts_path)
     end
   end
+
+  def logged_in?
+    !current_user.nil?
+  end
 end
