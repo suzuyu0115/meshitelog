@@ -1,5 +1,5 @@
 <div class="col-sm-12 col-lg-4 mb-3">
-  <div>
+  <div class="mb-3 border p-4 bg-light">
     <div class="card">
       <%= link_to post_path(post) do %>
         <%= image_tag post.food_image.url, class: 'card-img-top', size: '300x200' %>
@@ -10,12 +10,9 @@
         </h4>
           <% if current_user && current_user.own?(post) %>
             <%= render 'crud_menus', post: post %>
-            <%= render 'bookmark_button', post: post %>
-          <% elsif current_user %>
-            <%= render 'bookmark_button', post: post %>
           <% end %>
         <ul class="list-inline">
-          <li class="list-inline-item"><i class="far fa-user"></i>
+          <%= image_tag post.user.avatar.url, class: 'rounded-circle', size: '40x40' %>
             <% if post.user.nickname.present? %>
               <%= post.user.nickname %>
             <% else %>
@@ -24,6 +21,9 @@
           </li>
         </ul>
         <p class="card-text"><%= post.content %></p>
+          <% if current_user %>
+            <div style="text-align: right;"><%= render 'bookmark_button', post: post %></div>
+          <% end %>
       </div>
     </div>
   </div>

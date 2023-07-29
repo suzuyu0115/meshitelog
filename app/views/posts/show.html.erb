@@ -1,8 +1,7 @@
 <% content_for(:title, @post.title) %>
-<div class="container pt-5">
+<div class="container pt-5 mb-5 mt-3">
   <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
+    <div class="col-lg-8 offset-lg-2 mb-3 border p-4 bg-light">
       <!-- 掲示板内容 -->
       <article class="card">
         <div class="card-body">
@@ -15,25 +14,29 @@
               <h3 style='display: inline;'><%= @post.title %></h3>
               <% if current_user && current_user.own?(@post) %>
                 <%= render 'crud_menus', post: @post %>
-                <%= render 'bookmark_button', post: @post %>
-              <% elsif current_user %>
-                <%= render 'bookmark_button', post: @post %>
               <% end %>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @post.user.name %></li>
+              <br>
+                <li class="list-inline-item"><%= image_tag @post.user.avatar.url, class: 'rounded-circle', size: '40x40' %> <%= @post.user.name %></li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :long %></li>
               </ul>
             </div>
           </div>
+          <div class="card card-body text-center">
           <p><%= simple_format(@post.content) %></p>
+          </div>
+          <br>
+          <% if current_user %>
+            <div style="text-align: right;"><%= render 'bookmark_button', post: @post %></div>
+          <% end %>
         </div>
       </article>
     </div>
   </div>
+</div>
 
   <!-- コメントフォーム -->
   <%= render 'comments/form', { post: @post, comment: @comment } %>
 
   <!-- コメントエリア -->
   <%= render 'comments/comments', { comments: @comments } %>
-</div>
