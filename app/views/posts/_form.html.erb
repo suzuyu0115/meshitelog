@@ -37,7 +37,7 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           誰に飯テロする？
         </button>
-        <div class="dropdown-menu scrollable-dropdown" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu scrollable-dropdown dropdown-menu-padding" aria-labelledby="dropdownMenuButton" data-stopPropagation="true">
           <%= f.collection_check_boxes :recipient_ids, User.all, :id, :display_name do |b| %>
             <div class="form-check">
               <%= b.check_box class: 'form-check-input' %>

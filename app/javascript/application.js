@@ -4,6 +4,7 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./previews"
 import "./slides"
+import "./dropdown"
 
 import jquery from "jquery"
 window.$ = window.jQuery = jquery

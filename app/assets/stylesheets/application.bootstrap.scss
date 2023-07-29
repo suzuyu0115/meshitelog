@@ -4,3 +4,10 @@
 @import 'header';
 @import 'main';
 @import 'dropdown';
+
+.btn:active {
+  transform: scale(0.98);
+  /* ボタンが少し小さくなる */
+  transition: 0.1s;
+  /* エフェクトの速度を調整 */
+}
