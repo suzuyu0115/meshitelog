@@ -1,7 +1,3 @@
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('[data-stopPropagation]').forEach(function (element) {
-    element.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-  });
+$(document).on('click', '.dropdown-menu', function (e) {
+  e.stopPropagation();
 });

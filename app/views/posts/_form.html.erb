@@ -33,11 +33,11 @@
   <div class="form-group">
     <% if post.new_record? || (post.published_at.present? && post.published_at > Time.current) %>
       <%= f.label :recipients %>
-      <div class="dropdown">
+      <div class="dropup">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          誰に飯テロする？
+          <%= t('posts.new.recipients') %>
         </button>
-        <div class="dropdown-menu scrollable-dropdown dropdown-menu-padding" aria-labelledby="dropdownMenuButton" data-stopPropagation="true">
+        <div class="dropdown-menu scrollable-dropdown dropdown-menu-padding" aria-labelledby="dropdownMenuButton">
           <%= f.collection_check_boxes :recipient_ids, User.all, :id, :display_name do |b| %>
             <div class="form-check">
               <%= b.check_box class: 'form-check-input' %>
@@ -49,5 +49,6 @@
     <% end %>
   </div>
   <br>
-  <%= f.submit t('posts.new.title'), class: 'btn btn-primary' %>
+  <br>
+  <%= f.submit t('posts.new.title'), class: 'btn btn-warning btn-lg d-grid gap-2 col-6 mx-auto' %>
 <% end %>
