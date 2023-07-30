@@ -25,7 +25,8 @@ ja:
       title: '投稿一覧'
       no_result: '飯投稿がありません'
     new:
-      title: '飯投稿'
+      title: '飯テロする'
+      recipients: '誰に飯テロする？'
     show:
       title: '詳細'
     edit:

@@ -1,0 +1,9 @@
+.grow-on-hover {
+  transition: transform 0.3s ease-in-out;
+  /* アニメーションの速度を調整 */
+}
+
+.grow-on-hover:hover {
+  transform: scale(1.03);
+  /* ホバー時の大きさを設定 */
+}
