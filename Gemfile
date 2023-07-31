@@ -57,6 +57,7 @@ gem 'rails-i18n'
 # 画像アップロード機能
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mini_magick'
 
 # ページネーション
 gem 'kaminari'
