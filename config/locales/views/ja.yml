@@ -2,6 +2,7 @@ ja:
   defaults:
     app_name: '飯テログ'
     logout: 'ログアウト'
+    back_talk: 'トーク画面に戻る'
     copyright: 'Copyright © 2023. 飯テログ'
     post: '投稿'
     posts: 'みんなの投稿を見る'

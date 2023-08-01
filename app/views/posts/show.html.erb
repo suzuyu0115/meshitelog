@@ -17,7 +17,14 @@
               <% end %>
               <ul class="list-inline">
               <br>
-                <li class="list-inline-item"><%= image_tag @post.user.avatar.url, class: 'rounded-circle', size: '40x40' %> <%= @post.user.name %></li>
+                <li class="list-inline-item">
+                  <%= image_tag @post.user.avatar.url, class: 'rounded-circle', size: '40x40' %>
+                  <% if @post.user.nickname.present? %>
+                    <%= @post.user.nickname %>
+                  <% else %>
+                    <%= @post.user.name %>
+                  <% end %>
+                </li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :long %></li>
               </ul>
             </div>
@@ -36,7 +43,9 @@
 </div>
 
   <!-- コメントフォーム -->
-  <%= render 'comments/form', { post: @post, comment: @comment } %>
+  <% if current_user %>
+    <%= render 'comments/form', { post: @post, comment: @comment } %>
+  <% end %>
 
   <!-- コメントエリア -->
   <%= render 'comments/comments', { comments: @comments } %>
