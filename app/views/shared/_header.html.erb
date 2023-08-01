@@ -17,6 +17,7 @@
           <%= link_to t('profiles.show.title'), profile_path, class: 'dropdown-item' %>
           <%= link_to t('posts.bookmarks.title'), bookmarks_posts_path, class: 'dropdown-item' %>
           <%= link_to t('defaults.logout'), user_path(@user), data: { turbo_method: :delete }, class: 'dropdown-item' %>
+          <%= link_to t('defaults.back_talk'), 'https://line.me/R/ti/p/@910svtxk', class: 'dropdown-item' %>
         </div>
       </div>
 
@@ -38,7 +39,7 @@
               <%= link_to t('profiles.show.title'), profile_path, class: 'dropdown-item' %>
               <%= link_to t('posts.bookmarks.title'), bookmarks_posts_path, class: 'dropdown-item' %>
               <%= link_to t('defaults.logout'), user_path(@user), data: { turbo_method: :delete }, class: 'dropdown-item' %>
-              <%= link_to t('defaults.back_talk'), 'https://line.me/R/ti/p/@910svtxk', data: { turbo_method: :delete }, class: 'dropdown-item' %>
+              <%= link_to t('defaults.back_talk'), 'https://line.me/R/ti/p/@910svtxk', class: 'dropdown-item' %>
             </div>
           </li>
         </ul>
