@@ -40,7 +40,7 @@ module ApplicationHelper
       twitter: {
         site:,
         card: 'summary_large_image',
-        image:
+        image: image
       }
     }
     set_meta_tags(configs)
