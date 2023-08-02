@@ -29,7 +29,7 @@ class FoodImageUploader < CarrierWave::Uploader::Base
 
   # デフォルトの画像ファイル
   def default_url
-    'post_placeholder.png'
+    'placeholder.png'
   end
 
   # Process files as they are uploaded:
