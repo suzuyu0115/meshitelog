@@ -1,4 +1,4 @@
-<% assign_meta_tags title: (t '.title'), image: @post.food_image.url %>
+<% assign_meta_tags title: @post.title, image: @post.food_image.url %>
 <% content_for(:title, @post.title) %>
 <div class="container pt-5 mb-5 mt-3">
   <div class="row mb-3">
