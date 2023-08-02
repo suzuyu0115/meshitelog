@@ -37,6 +37,8 @@
           <% if current_user %>
             <div style="text-align: right;"><%= render 'bookmark_button', post: @post %></div>
           <% end %>
+          <% character = [0x1D54F].pack('U*') %>
+          <%= link_to "#{character} でシェア", "https://twitter.com/intent/tweet?url=#{request.url}&text=【#{@post.title}】をテロ!%0a%20%23飯テログ", class: "btn btn-dark", title: 'Twitter', target: '_blank' %>
         </div>
       </article>
     </div>

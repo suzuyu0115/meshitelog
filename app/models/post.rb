@@ -169,7 +169,7 @@ class Post < ApplicationRecord
             height: "sm",
             action: {
               type: "uri",
-              uri: "https://twitter.com/home",
+              uri: "https://twitter.com/intent/tweet?url=#{request.url}&text=【#{title}】をテロ!%0a%20%23飯テログ",
               label: "シェア"
             }
           },
