@@ -169,7 +169,7 @@ class Post < ApplicationRecord
             height: "sm",
             action: {
               type: "uri",
-              uri: "https://twitter.com/intent/tweet?url=#{request.url}&text=【#{title}】をテロ!%0a%20%23飯テログ",
+              uri: "https://twitter.com/intent/tweet?url=https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}&text=【#{title}】をテロ!%0a%20%23飯テログ",
               label: "シェア"
             }
           },
