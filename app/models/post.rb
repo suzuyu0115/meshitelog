@@ -163,16 +163,16 @@ class Post < ApplicationRecord
               uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
             }
           },
-          {
-            type: "button",
-            style: "link",
-            height: "sm",
-            action: {
-              type: "uri",
-              uri: "https://twitter.com/home",
-              label: "シェア"
-            }
-          },
+          # {
+          #   type: "button",
+          #   style: "link",
+          #   height: "sm",
+          #   action: {
+          #     type: "uri",
+          #     uri: "https://twitter.com/intent/tweet?url=https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}&text=【#{title}】をテロ!%0a%20%23飯テログ",
+          #     label: "シェア"
+          #   }
+          # },
           {
             type: "box",
             layout: "vertical",

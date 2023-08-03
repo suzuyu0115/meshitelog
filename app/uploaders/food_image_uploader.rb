@@ -29,11 +29,11 @@ class FoodImageUploader < CarrierWave::Uploader::Base
 
   # デフォルトの画像ファイル
   def default_url
-    'post_placeholder.png'
+    'placeholder.png'
   end
 
   # Process files as they are uploaded:
-  process resize_to_fill: [300, 300, 'Center']
+  process resize_to_fill: [300, 200, 'Center']
   #
   # def scale(width, height)
   #   # do something

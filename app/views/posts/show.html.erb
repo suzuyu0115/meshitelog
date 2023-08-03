@@ -1,4 +1,4 @@
-<% content_for(:title, @post.title) %>
+<% assign_meta_tags title: @post.title, image: @post.food_image.url %>
 <div class="container pt-5 mb-5 mt-3">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2 mb-3 border p-4 bg-light">
@@ -36,6 +36,8 @@
           <% if current_user %>
             <div style="text-align: right;"><%= render 'bookmark_button', post: @post %></div>
           <% end %>
+          <% character = [0x1D54F].pack('U*') %>
+          <%= link_to "#{character} でシェア", "https://twitter.com/intent/tweet?url=#{request.url}&text=【#{@post.title}】をテロ!%0a%20%23飯テログ", class: "btn btn-dark", title: 'Twitter', target: '_blank' %>
         </div>
       </article>
     </div>
