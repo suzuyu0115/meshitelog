@@ -1,10 +1,4 @@
 module ApplicationHelper
-  def page_title(page_title = '')
-    base_title = t('defaults.app_name')
-
-    page_title.empty? ? base_title : "#{page_title} | #{base_title}"
-  end
-
   def show_meta_tags
     assign_meta_tags if display_meta_tags.blank?
     display_meta_tags
