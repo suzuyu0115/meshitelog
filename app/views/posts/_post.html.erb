@@ -25,7 +25,7 @@
             <div style="text-align: right;"><%= render 'bookmark_button', post: post %></div>
           <% end %>
           <% character = [0x1D54F].pack('U*') %>
-          <%= link_to "#{character}", "https://twitter.com/intent/tweet?url=#{request.url}&text=【#{post.title}】をテロ!%0a%20%23飯テログ", class: "btn btn-dark btn-sm", title: 'Twitter', target: '_blank' %>
+          <%= link_to "#{character}", "https://twitter.com/intent/tweet?url=#{request.url}/#{post.id}&text=【#{post.title}】をテロ!%0a%20%23飯テログ", class: "btn btn-dark btn-sm", title: 'Twitter', target: '_blank' %>
       </div>
     </div>
   </div>
