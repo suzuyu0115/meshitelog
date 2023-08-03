@@ -25,6 +25,9 @@
 #
 class Post < ApplicationRecord
   mount_uploader :food_image, FoodImageUploader
+
+  acts_as_taggable
+
   belongs_to :user
   belongs_to :author, class_name: "User"
   has_many :deliveries, dependent: :destroy
