@@ -21,9 +21,9 @@ module ApplicationHelper
     configs = {
       separator: '|',
       reverse: true,
-      site:,
-      title:,
-      description:,
+      site: site,
+      title: title,
+      description: description,
       keywords:,
       canonical: request.original_url,
       icon: {
@@ -32,13 +32,13 @@ module ApplicationHelper
       og: {
         type: 'website',
         title: title.presence || site,
-        description:,
+        description: description,
         url: request.original_url,
-        image:,
+        image: image,
         site_name: site
       },
       twitter: {
-        site:,
+        site: site,
         card: 'summary_large_image',
         image: image
       }
