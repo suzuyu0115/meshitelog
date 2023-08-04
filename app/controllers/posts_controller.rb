@@ -4,7 +4,13 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.where('published_at IS NULL OR published_at <= ?', Time.current).ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user, :taggings).order(created_at: :desc).page(params[:page])
+    @posts = @q.result(distinct: true).includes(:user, :taggings).order(created_at: :desc)
+
+    if params[:tag_name]
+      @posts = @posts.tagged_with("#{params[:tag_name]}")
+    end
+
+    @posts = @posts.page(params[:page])
   end
 
   def show
