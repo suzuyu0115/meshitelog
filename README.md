@@ -70,6 +70,8 @@ README〜ER図作成：6/10 〆切
 - Rails7
 - postgresql
 - Bootstrap
+- JavaScript
+- jQuery
 - heroku
 - Hotwire
 - LINEMessagingAPI
