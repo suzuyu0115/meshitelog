@@ -24,6 +24,11 @@
   </div>
   <br>
   <div class="form-group">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, class: 'form-control', value: post.tag_list.join(','), placeholder: ', で区切って入力してください' %>
+  </div>
+  <br>
+  <div class="form-group">
     <% if post.new_record? || (post.published_at.present? && post.published_at > Time.current) %>
       <%= f.label :published_at %>
       <%= f.datetime_field :published_at, class: 'form-control' %>

@@ -1,0 +1,4 @@
+<% colors = ['primary', 'success', 'info', 'warning', 'danger', 'secondary'] %>
+<% post.tag_list.each do |tag| %>
+  <span class="badge rounded-pill bg-<%= colors.sample %> text-decoration-none text-white"><%= link_to tag, posts_path(tag_name: tag), class: 'text-white underline_none' %></span>
+<% end %>

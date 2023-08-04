@@ -13,13 +13,13 @@
           <% end %>
         <ul class="list-inline">
           <%= image_tag post.user.avatar.url, class: 'rounded-circle', size: '40x40' %>
-            <% if post.user.nickname.present? %>
-              <%= post.user.nickname %>
-            <% else %>
-              <%= post.user.name %>
-            <% end %>
-          </li>
+          <% if post.user.nickname.present? %>
+            <%= post.user.nickname %>
+          <% else %>
+            <%= post.user.name %>
+          <% end %>
         </ul>
+        <%= render 'tag_list', post: post %>
         <p class="card-text"><%= post.content %></p>
           <% if current_user %>
             <div style="text-align: right;"><%= render 'bookmark_button', post: post %></div>

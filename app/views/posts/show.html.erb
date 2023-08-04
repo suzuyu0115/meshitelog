@@ -15,6 +15,9 @@
               <% if current_user && current_user.own?(@post) %>
                 <%= render 'crud_menus', post: @post %>
               <% end %>
+              <br>
+              <br>
+              <%= render 'tag_list', post: @post %>
               <ul class="list-inline">
               <br>
                 <li class="list-inline-item">
