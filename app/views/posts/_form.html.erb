@@ -25,7 +25,7 @@
   <br>
   <div class="form-group">
     <%= f.label :tag_list %>
-    <%= f.text_field :tag_list, class: 'form-control', value: post.tag_list.join('、'), placeholder: '、 で区切って入力してください' %>
+    <%= f.text_field :tag_list, class: 'form-control', value: post.tag_list.join(','), placeholder: ', で区切って入力してください' %>
   </div>
   <br>
   <div class="form-group">
