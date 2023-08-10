@@ -25,7 +25,7 @@
   <br>
   <div class="form-group">
     <%= f.label :tag_list %>
-    <%= f.text_field :tag_list, class: 'form-control', value: post.tag_list.join(','), placeholder: ', で区切って入力してください' %>
+    <%= f.text_field :tag_list, class: 'form-control', value: post.tag_list.join('、'), placeholder: '、 で区切って入力してください' %>
   </div>
   <br>
   <div class="form-group">
@@ -46,7 +46,7 @@
           <%= f.collection_check_boxes :recipient_ids, User.all, :id, :display_name do |b| %>
             <div class="form-check">
               <%= b.check_box class: 'form-check-input' %>
-              <%= b.label class: 'form-check-label' %>
+              <%= b.label { b.object.display_name.presence || b.object.name } %>
             </div>
           <% end %>
         </div>
