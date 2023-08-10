@@ -47,6 +47,6 @@ class User < ApplicationRecord
 
   # nicknameが存在すればそれを返し、なければnameを返す
   def display_name
-    nickname || name
+    nickname.presence || name
   end
 end

@@ -46,7 +46,7 @@
           <%= f.collection_check_boxes :recipient_ids, User.all, :id, :display_name do |b| %>
             <div class="form-check">
               <%= b.check_box class: 'form-check-input' %>
-              <%= b.label class: 'form-check-label' %>
+              <%= b.label { b.object.display_name.presence || b.object.name } %>
             </div>
           <% end %>
         </div>
