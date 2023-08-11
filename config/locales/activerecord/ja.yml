@@ -12,8 +12,8 @@ ja:
         title: '料理名'
         content: 'コメント'
         food_image: '飯画像'
-        tag_list: 'タグ'
+        tag_list: 'タグ(任意)'
         published_at: '投稿日時(任意)'
-        recipients: '送り相手(任意)'
+        recipients: '送り相手(任意、複数選択可)'
       comment:
         body: 'コメント'
