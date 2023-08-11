@@ -51,6 +51,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.0.5)
       activesupport (= 7.0.5)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (7.0.5)
       activemodel (= 7.0.5)
       activesupport (= 7.0.5)
@@ -180,6 +184,7 @@ GEM
     minitest (5.18.1)
     msgpack (1.7.1)
     multi_json (1.15.0)
+    nested_form (0.3.2)
     net-imap (0.3.6)
       date
       net-protocol
@@ -229,6 +234,12 @@ GEM
     rails-i18n (7.0.7)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
+    rails_admin (3.1.2)
+      activemodel-serializers-xml (>= 1.0)
+      kaminari (>= 0.14, < 2.0)
+      nested_form (~> 0.3)
+      rails (>= 6.0, < 8)
+      turbo-rails (~> 1.0)
     railties (7.0.5)
       actionpack (= 7.0.5)
       activesupport (= 7.0.5)
@@ -344,6 +355,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.5)
   rails-i18n
+  rails_admin
   ransack
   redis (~> 4.0)
   rubocop
