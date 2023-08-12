@@ -39,4 +39,18 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  # Userモデルの設定
+  config.model 'User' do
+    list do
+      scopes [:with_associations]
+    end
+  end
+
+  # Postモデルの設定
+  config.model 'Post' do
+    list do
+      scopes [:with_associations]
+    end
+  end
 end

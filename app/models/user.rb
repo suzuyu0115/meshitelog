@@ -25,6 +25,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  scope :with_associations, -> { includes(:posts, :deliveries, :received_posts, :comments, :bookmarks, :bookmark_posts) }
+
   # current_userか否かを判別するロジック
   def own?(object)
     object.user_id == id

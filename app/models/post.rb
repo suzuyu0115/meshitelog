@@ -41,6 +41,8 @@ class Post < ApplicationRecord
   after_create_commit :notify_line
   after_create_commit :schedule_publication
 
+  scope :with_associations, -> { includes(:deliveries, :recipients, :comments, :bookmarks) }
+
   def self.ransackable_associations(_auth_object = nil)
     ["bookmarks", "comments", "user"]
   end
