@@ -77,6 +77,12 @@ gem 'meta-tags'
 # タグ
 gem 'acts-as-taggable-on'
 
+# 管理画面
+gem 'rails_admin'
+
+# enumの多言語化
+gem 'enum_help'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -105,3 +111,4 @@ group :development do
   # シードデータ
   gem 'faker'
 end
+gem "sassc-rails"

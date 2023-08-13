@@ -17,3 +17,8 @@ ja:
         recipients: '送り相手(任意、複数選択可)'
       comment:
         body: 'コメント'
+    enums:
+      user:
+        role:
+          general: '一般'
+          admin: '管理者'
