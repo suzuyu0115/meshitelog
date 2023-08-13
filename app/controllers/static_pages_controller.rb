@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
       render 'top'
     end
   end
+
+  def terms; end
+
+  def privacy; end
 end
