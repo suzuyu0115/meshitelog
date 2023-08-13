@@ -1,11 +1,12 @@
-<footer id='footer' class='footer-bottom'>
-  <div class='container'>
-    <div class='row'>
-      <div class='col-sm-6 col-12'>
-        <div class='copyright'>
-          <p><%= t('defaults.copyright') %></p>
-        </div>
-      </div>
+<footer id='footer' class="footer-bottom border-top pt-3">
+  <div class="container">
+    <div class="copyright text-center mb-2">
+      <%=link_to t('static_pages.terms.title'), terms_path, class: "px-1 link-dark text-decoration-none" %>
+      <%=link_to t('static_pages.privacy.title'), privacy_path, class: "px-1 link-dark text-decoration-none" %>
+      <%=link_to t('static_pages.contact.title'), "https://docs.google.com/forms/d/e/1FAIpQLSerP-M1KxL-wgICmzZ-k2A1aC3VKuiJ52oFYlIHmXc9AVyVXg/viewform?usp=sf_link", class: "px-1 link-dark text-decoration-none" %>
+    </div>
+    <div class="copyright text-center">
+      <p><%= t('defaults.copyright') %></p>
     </div>
   </div>
 </footer>

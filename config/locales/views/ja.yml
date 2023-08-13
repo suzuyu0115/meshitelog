@@ -18,6 +18,13 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+  static_pages:
+    terms:
+      title: '利用規約'
+    privacy:
+      title: 'プライバシーポリシー'
+    contact:
+      title: 'お問い合わせ'
   users:
     destroy:
       success: 'ログアウトしました'
