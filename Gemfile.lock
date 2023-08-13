@@ -113,6 +113,8 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     excon (0.100.0)
     faker (3.2.0)
@@ -343,6 +345,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dotenv-rails
+  enum_help
   faker
   fog-aws
   jbuilder
