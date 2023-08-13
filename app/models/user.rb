@@ -6,7 +6,7 @@
 #  avatar       :string
 #  name         :string           not null
 #  nickname     :string
-#  role         :integer          default(0), not null
+#  role         :integer          default("general"), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  line_user_id :string           not null

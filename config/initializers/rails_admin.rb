@@ -3,6 +3,15 @@ RailsAdmin.config do |config|
 
   ### Popular gems integration
 
+  config.authenticate_with do
+    user_id = session[:user_id]
+    user = User.find_by(id: user_id) if user_id
+    unless user && user.admin?
+      flash[:alert] = "権限がありません"
+      redirect_to main_app.root_path
+    end
+  end
+
   ## == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
