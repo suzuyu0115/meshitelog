@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def active_class_for(controller_name, action_name)
+    'active' if params[:controller] == controller_name && params[:action] == action_name
+  end
+
   def show_meta_tags
     assign_meta_tags if display_meta_tags.blank?
     display_meta_tags

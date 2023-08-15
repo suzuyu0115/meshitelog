@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
     collection do
+      get :top_rated
       get :bookmarks
       get :scheduled
       get :received
