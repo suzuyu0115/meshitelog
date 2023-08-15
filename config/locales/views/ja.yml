@@ -32,6 +32,8 @@ ja:
     index:
       title: '投稿一覧'
       no_result: '飯投稿がありません'
+      new_post: '新着投稿'
+      top_rated_post: '人気投稿'
     new:
       title: '飯テロする'
       recipients: '誰に飯テロする？'

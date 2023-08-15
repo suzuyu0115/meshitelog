@@ -11,6 +11,22 @@ class PostsController < ApplicationController
     @posts = @posts.page(params[:page])
   end
 
+  # 高評価順
+  def top_rated
+    @q = Post.left_joins(:bookmarks)
+            .select('posts.*, COUNT(bookmarks.post_id) AS bookmarks_count')
+            .group('posts.id')
+            .order('bookmarks_count DESC')
+            .where('published_at IS NULL OR published_at <= ?', Time.current)
+            .ransack(params[:q])
+
+    @posts = @q.result(distinct: true).includes(:user, :taggings)
+
+    @posts = @posts.tagged_with("#{params[:tag_name]}") if params[:tag_name]
+
+    @posts = @posts.page(params[:page])
+  end
+
   def show
     @post = Post.find(params[:id])
     # 予約投稿で現在時刻よりも後の投稿で、かつ現在のユーザーが投稿の作成者でない場合
@@ -51,22 +67,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
-  end
-
-  # 高評価順
-  def top_rated
-    @q = Post.left_joins(:bookmarks)
-            .select('posts.*, COUNT(bookmarks.post_id) AS bookmarks_count')
-            .group('posts.id')
-            .order('bookmarks_count DESC')
-            .where('published_at IS NULL OR published_at <= ?', Time.current)
-            .ransack(params[:q])
-
-    @posts = @q.result(distinct: true).includes(:user, :taggings)
-
-    @posts = @posts.tagged_with("#{params[:tag_name]}") if params[:tag_name]
-
-    @posts = @posts.page(params[:page])
   end
 
   # お気に入り投稿一覧
