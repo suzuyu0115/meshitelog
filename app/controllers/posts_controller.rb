@@ -6,9 +6,23 @@ class PostsController < ApplicationController
     @q = Post.where('published_at IS NULL OR published_at <= ?', Time.current).ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user, :taggings).order(created_at: :desc)
 
-    if params[:tag_name]
-      @posts = @posts.tagged_with("#{params[:tag_name]}")
-    end
+    @posts = @posts.tagged_with("#{params[:tag_name]}") if params[:tag_name]
+
+    @posts = @posts.page(params[:page])
+  end
+
+  # 高評価順
+  def top_rated
+    @q = Post.left_joins(:bookmarks)
+      .select('posts.*, COUNT(bookmarks.post_id) AS bookmarks_count')
+      .group('posts.id')
+      .order('bookmarks_count DESC')
+      .where('published_at IS NULL OR published_at <= ?', Time.current)
+      .ransack(params[:q])
+
+    @posts = @q.result(distinct: true).includes(:user, :taggings)
+
+    @posts = @posts.tagged_with("#{params[:tag_name]}") if params[:tag_name]
 
     @posts = @posts.page(params[:page])
   end
@@ -55,15 +69,18 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
+  # お気に入り投稿一覧
   def bookmarks
     @q = current_user.bookmark_posts.ransack(params[:q])
     @bookmark_posts = @q.result(distinct: true).includes(:user, :taggings).order(created_at: :desc).page(params[:page])
   end
 
+  # 送信待ちの投稿一覧
   def scheduled
     @posts = current_user.posts.where('published_at > ?', Time.current).order(created_at: :desc).page(params[:page])
   end
 
+  # 受け取った飯投稿一覧
   def received
     @received_posts = current_user.received_posts.includes(:user, :taggings).where('published_at IS NULL OR published_at <= ?', Time.current).order(created_at: :desc).page(params[:page])
   end
