@@ -14,11 +14,11 @@ class PostsController < ApplicationController
   # 高評価順
   def top_rated
     @q = Post.left_joins(:bookmarks)
-            .select('posts.*, COUNT(bookmarks.post_id) AS bookmarks_count')
-            .group('posts.id')
-            .order('bookmarks_count DESC')
-            .where('published_at IS NULL OR published_at <= ?', Time.current)
-            .ransack(params[:q])
+      .select('posts.*, COUNT(bookmarks.post_id) AS bookmarks_count')
+      .group('posts.id')
+      .order('bookmarks_count DESC')
+      .where('published_at IS NULL OR published_at <= ?', Time.current)
+      .ransack(params[:q])
 
     @posts = @q.result(distinct: true).includes(:user, :taggings)
 
