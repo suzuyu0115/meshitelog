@@ -61,16 +61,6 @@ class Post < ApplicationRecord
     "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
   end
 
-  # Twitterシェアの文章を生成
-  def share_text
-    "#{title} を飯テロされました！ #飯テログ #{post_url}"
-  end
-
-  # TwitterシェアURLを生成
-  def twitter_share_url
-    "https://twitter.com/intent/tweet?text=#{share_text}"
-  end
-
   def notify_line
     # 予約投稿か否かを判定
     return unless published?
@@ -168,16 +158,6 @@ class Post < ApplicationRecord
               uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
             }
           },
-          # {
-          #   type: "button",
-          #   style: "link",
-          #   height: "sm",
-          #   action: {
-          #     type: "uri",
-          #     uri: "https://twitter.com/intent/tweet?url=https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}&text=【#{title}】をテロ!%0a%20%23飯テログ",
-          #     label: "シェア"
-          #   }
-          # },
           {
             type: "box",
             layout: "vertical",
