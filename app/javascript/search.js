@@ -59,3 +59,9 @@ $(document).on('click', '.tag-dropdown li', function () {
   $('#q_tag_name_cont').val(tag);
   $('.tag-dropdown').remove();
 });
+
+$(document).on('blur', '#q_tag_name_cont', function () {
+  setTimeout(function () {
+    $('.tag-dropdown').remove();
+  }, 100);
+});
