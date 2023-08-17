@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     # 予約投稿で現在時刻よりも後の投稿で、かつ現在のユーザーが投稿の作成者でない場合
-    if @post.published_at.present? && @post.published_at > Time.current && current_user != @post.user
+    if @post.future_reserved_post?(current_user)
       redirect_to posts_path
     else
       @comment = Comment.new

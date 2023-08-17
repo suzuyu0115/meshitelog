@@ -44,6 +44,8 @@ class Post < ApplicationRecord
   scope :with_associations, -> { includes(:deliveries, :recipients, :comments, :bookmarks) }
   scope :tag_name_cont, ->(tag_name) { tagged_with(tag_name) }
 
+  ROOT_URL = "https://meshitelog-b166b21425a1.herokuapp.com"
+
   def self.ransackable_scopes(_auth_object = nil)
     [:tag_name_cont]
   end
@@ -56,6 +58,10 @@ class Post < ApplicationRecord
     ["content", "created_at", "title"]
   end
 
+  def future_reserved_post?(current_user)
+    published_at.present? && published_at > Time.current && user != current_user
+  end
+
   # nicknameがあればnicknameを、なければnameを返す
   def sender_name
     user.nickname || user.name
@@ -63,7 +69,7 @@ class Post < ApplicationRecord
 
   # 各投稿詳細ページのURLを返す
   def post_url
-    "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
+    "#{ROOT_URL}/posts/#{id}"
   end
 
   def notify_line
@@ -94,7 +100,7 @@ class Post < ApplicationRecord
         aspectMode: "cover",
         action: {
           type: "uri",
-          uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
+          uri: post_url
         }
       },
       body: {
@@ -160,7 +166,7 @@ class Post < ApplicationRecord
             action: {
               type: "uri",
               label: "詳細を見る",
-              uri: "https://meshitelog-b166b21425a1.herokuapp.com/posts/#{id}"
+              uri: post_url
             }
           },
           {
