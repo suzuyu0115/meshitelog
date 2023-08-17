@@ -15,11 +15,7 @@
         <% end %>
       </div>
       <!-- ページネーション -->
-      <div class="row">
-        <div class="col-12">
-          <%= paginate @posts %>
-        </div>
-      </div>
+      <%= render 'pagination', posts: @posts %>
     </div>
   </div>
 </div>

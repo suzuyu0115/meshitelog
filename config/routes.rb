@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :bookmarks
       get :scheduled
       get :received
+      get :search_tags
     end
   end
 

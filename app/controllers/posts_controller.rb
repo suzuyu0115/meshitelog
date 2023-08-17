@@ -89,6 +89,12 @@ class PostsController < ApplicationController
     @received_posts = current_user.received_posts.includes(:user, :taggings).where('published_at IS NULL OR published_at <= ?', Time.current).order(created_at: :desc).page(params[:page])
   end
 
+  def search_tags
+    query = params[:query]
+    @tags = ActsAsTaggableOn::Tag.where('name LIKE ?', "%#{query}%")
+    render json: @tags.pluck(:name)
+  end
+
   private
 
   def set_post

@@ -7,3 +7,17 @@
   transform: scale(1.03);
   /* ホバー時の大きさを設定 */
 }
+
+.tag-dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  /* ドロップダウンを最前面に表示 */
+}
+
+.tag-dropdown li {
+  cursor: pointer;
+}
