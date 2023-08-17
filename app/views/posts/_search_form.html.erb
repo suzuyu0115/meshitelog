@@ -3,8 +3,9 @@
     <div class="col-md-6 mb-2">
       <%= f.search_field :title_cont, class: 'form-control', placeholder: t('defaults.search_word') %>
     </div>
-    <div class="col-md-4 mb-2">
+    <div class="col-md-4 mb-2 position-relative">
       <%= f.search_field :tag_name_cont, class: 'form-control', placeholder: t('defaults.search_tag') %>
+      <ul class="tag-dropdown" style="display:none;"></ul>
     </div>
     <div class="col-md-2">
       <%= f.submit class: 'btn btn-primary mb-2' %>

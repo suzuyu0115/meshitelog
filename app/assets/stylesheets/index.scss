@@ -10,12 +10,18 @@
 
 .tag-dropdown {
   position: absolute;
-  width: 100%;
+  top: 100%;
+  /* 入力欄の直下に配置 */
+  left: 0;
+  /* 左端に揃える */
+  right: 0;
+  /* 右端に揃える */
+  width: auto;
+  /* 必要な幅だけ取る */
   max-height: 150px;
   overflow-y: scroll;
   border: 1px solid #ccc;
   z-index: 1000;
-  /* ドロップダウンを最前面に表示 */
 }
 
 .tag-dropdown li {
