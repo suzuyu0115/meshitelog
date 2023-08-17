@@ -45,6 +45,12 @@ $(document).on('input', '#q_tag_name_cont', function () {
     // クエリが短すぎるか、空の場合はドロップダウンを削除
     $('.tag-dropdown').remove();
   }
+
+  if (!query) {
+    // タグの入力フォームが空の場合、ドロップダウンを非表示にする
+    $('.tag-dropdown').hide();
+    return;
+  }
 });
 
 // ドロップダウンのタグをクリックした場合、入力フィールドにそのタグを設定
