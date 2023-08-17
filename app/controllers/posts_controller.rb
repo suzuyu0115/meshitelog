@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     @posts = @posts.tagged_with("#{params[:tag_name]}") if params[:tag_name]
 
     @posts = @posts.page(params[:page])
+
+    if request.xhr?
+      render partial: 'post', collection: @posts, as: :post, status: :ok
+    end
   end
 
   # 高評価順

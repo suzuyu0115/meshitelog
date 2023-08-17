@@ -5,6 +5,7 @@ import * as bootstrap from "bootstrap"
 import "./previews"
 import "./slides"
 import "./dropdown"
+import "./search"
 
 import jquery from "jquery"
 window.$ = window.jQuery = jquery
