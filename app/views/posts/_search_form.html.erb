@@ -1,9 +1,14 @@
 <%= search_form_for @q, url: url do |f| %>
-  <div class="input-group mb-3">
-    <%= f.search_field :title_cont, class: 'form-control', placeholder: t('defaults.search_word') %>
-    <%= f.search_field :tag_name_cont, class: 'form-control', placeholder: 'タグ名' %>
-    <div class="input-group-append">
-      <%= f.submit class: 'btn btn-primary' %>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-2">
+      <%= f.search_field :title_cont, class: 'form-control', placeholder: t('defaults.search_word') %>
+    </div>
+    <div class="col-md-4 mb-2">
+      <%= f.search_field :tag_name_cont, class: 'form-control', placeholder: t('defaults.search_tag') %>
+    </div>
+    <div class="col-md-2">
+      <%= f.submit class: 'btn btn-primary mb-2' %>
+      <%= link_to t('defaults.search_reset'), posts_path, class: "btn btn-outline-secondary mb-2" %>
     </div>
   </div>
 <% end %>

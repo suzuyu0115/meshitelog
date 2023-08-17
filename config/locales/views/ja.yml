@@ -10,6 +10,8 @@ ja:
     edit: '編集'
     line_login: 'LINEでログイン'
     search_word: '飯を探す'
+    search_tag: 'タグで探す'
+    search_reset: 'リセット'
     message:
       require_login: 'LINEログインが必要です'
       created: "%{item}を作成しました"
