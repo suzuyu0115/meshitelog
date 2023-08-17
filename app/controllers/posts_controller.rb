@@ -10,9 +10,7 @@ class PostsController < ApplicationController
 
     @posts = @posts.page(params[:page])
 
-    if request.xhr?
-      render partial: 'post', collection: @posts, as: :post, status: :ok
-    end
+    render partial: 'post', collection: @posts, as: :post, status: :ok if request.xhr?
   end
 
   # 高評価順

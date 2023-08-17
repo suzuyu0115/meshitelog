@@ -20,7 +20,7 @@ $(document).on('input', '#q_title_cont', function () {
 $(document).on('input', '#q_tag_name_cont', function () {
   let query = $(this).val();
 
-  if (query.length > 2) {
+  if (query.length >= 1) {
     $.ajax({
       url: '/posts/search_tags',
       data: { query: query },
