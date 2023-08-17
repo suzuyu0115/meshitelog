@@ -1,3 +1,5 @@
+let previousRequest;
+
 $(document).on('input', '#q_title_cont', function () {
   let query = $(this).val();
 
@@ -16,44 +18,44 @@ $(document).on('input', '#q_title_cont', function () {
   });
 });
 
-// タグのインクリメンタルサーチ
 $(document).on('input', '#q_tag_name_cont', function () {
   let query = $(this).val();
 
+  if (previousRequest) {
+    previousRequest.abort();
+  }
+
   if (query.length >= 1) {
-    $.ajax({
+    previousRequest = $.ajax({
       url: '/posts/search_tags',
       data: { query: query },
       type: 'GET',
       dataType: 'json',
       success: function (data) {
-        // 既存のドロップダウンリストをクリア
         $('.tag-dropdown').remove();
 
-        // 新しいドロップダウンリストを作成
         let dropdown = $('<ul class="tag-dropdown list-group">');
         data.forEach(function (tag) {
           let tagItem = $('<li class="list-group-item">').text(tag);
           dropdown.append(tagItem);
         });
 
-        // 入力フィールドの下にドロップダウンリストを表示
         $('#q_tag_name_cont').after(dropdown);
+      },
+      complete: function () {
+        previousRequest = null;
       }
     });
   } else {
-    // クエリが短すぎるか、空の場合はドロップダウンを削除
     $('.tag-dropdown').remove();
   }
 
   if (!query) {
-    // タグの入力フォームが空の場合、ドロップダウンを非表示にする
     $('.tag-dropdown').hide();
     return;
   }
 });
 
-// ドロップダウンのタグをクリックした場合、入力フィールドにそのタグを設定
 $(document).on('click', '.tag-dropdown li', function () {
   let tag = $(this).text();
   $('#q_tag_name_cont').val(tag);
