@@ -72,6 +72,11 @@ class Post < ApplicationRecord
     "#{ROOT_URL}/posts/#{id}"
   end
 
+  # LINEのキャッシュ回避のために画像のURLにタイムスタンプを付与する
+  def unique_image_url
+    "#{food_image.url}?timestamp=#{Time.now.to_i}"
+  end
+
   def notify_line
     # 予約投稿か否かを判定
     return unless published?
@@ -94,7 +99,7 @@ class Post < ApplicationRecord
       },
       hero: {
         type: "image",
-        url: food_image.url,
+        url: unique_image_url,
         size: "full",
         aspectRatio: "20:13",
         aspectMode: "cover",
