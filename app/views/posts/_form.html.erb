@@ -53,6 +53,14 @@
       </div>
     <% end %>
   </div>
+  <div class="form-group">
+    <%= f.radio_button :send_option, 'all', id: 'send_to_all', class: 'form-check-input' %>
+    <%= f.label :send_option_all, for: 'send_to_all' %>
+  </div>
+  <div class="form-group">
+    <%= f.radio_button :send_option, 'random_10', id: 'send_to_random_10', class: 'form-check-input' %>
+    <%= f.label :send_option_random_10, for: 'send_to_random_10' %>
+  </div>
   <br>
   <br>
   <%= f.submit t('posts.new.title'), class: 'btn btn-warning btn-lg d-grid gap-2 col-6 mx-auto' %>

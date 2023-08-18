@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :scheduled]
+  before_action :set_recipient_ids, only: [:create, :update]
   before_action :set_post, only: %i[edit update destroy]
 
   def index
@@ -49,6 +50,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.author = current_user
+
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -97,6 +99,17 @@ class PostsController < ApplicationController
 
   def set_post
     @post = current_user.posts.find(params[:id])
+  end
+
+  def set_recipient_ids
+    return unless params[:post][:send_option].present?
+
+    case params[:post][:send_option]
+    when 'all'
+      params[:post][:recipient_ids] = User.all.pluck(:id)
+    when 'random_10'
+      params[:post][:recipient_ids] = User.order("RANDOM()").limit(10).pluck(:id)
+    end
   end
 
   def post_params
