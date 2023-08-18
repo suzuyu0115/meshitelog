@@ -96,7 +96,7 @@ class Post < ApplicationRecord
       },
       hero: {
         type: "image",
-        url: food_image,
+        url: food_image.url,
         size: "full",
         aspectRatio: "20:13",
         aspectMode: "cover",
