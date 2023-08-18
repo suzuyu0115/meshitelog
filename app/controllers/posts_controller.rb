@@ -49,6 +49,12 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.author = current_user
+
+    # 全員に送信する場合、すべてのユーザーIDをrecipient_idsに設定
+    if params[:post][:send_to_all] == '1'
+      @post.recipient_ids = User.all.pluck(:id)
+    end
+
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else

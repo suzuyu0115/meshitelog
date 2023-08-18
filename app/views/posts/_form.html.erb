@@ -54,6 +54,11 @@
     <% end %>
   </div>
   <br>
+  <div class="form-group">
+    <%= f.check_box :send_to_all, class: 'form-check-input' %>
+    <%= f.label :send_to_all, "全員に送信する" %>
+  </div>
+  <br>
   <br>
   <%= f.submit t('posts.new.title'), class: 'btn btn-warning btn-lg d-grid gap-2 col-6 mx-auto' %>
 <% end %>
