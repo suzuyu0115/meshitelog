@@ -50,10 +50,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.author = current_user
 
-    # 全員に送信する場合、すべてのユーザーIDをrecipient_idsに設定
-    if params[:post][:send_to_all] == '1'
-      @post.recipient_ids = User.all.pluck(:id)
-    end
+    set_recipient_ids
 
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
@@ -64,6 +61,8 @@ class PostsController < ApplicationController
   end
 
   def update
+    set_recipient_ids
+
     if @post.update(post_params)
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -103,6 +102,15 @@ class PostsController < ApplicationController
 
   def set_post
     @post = current_user.posts.find(params[:id])
+  end
+
+  def set_recipient_ids
+    case params[:post][:send_option]
+    when 'all'
+      params[:post][:recipient_ids] = User.all.pluck(:id)
+    when 'random_10'
+      params[:post][:recipient_ids] = User.order("RANDOM()").limit(10).pluck(:id)
+    end
   end
 
   def post_params

@@ -53,10 +53,13 @@
       </div>
     <% end %>
   </div>
-  <br>
   <div class="form-group">
-    <%= f.check_box :send_to_all, class: 'form-check-input' %>
-    <%= f.label :send_to_all, "全員に送信する" %>
+    <%= f.radio_button :send_option, 'all', id: 'send_to_all', class: 'form-check-input' %>
+    <%= f.label :send_option_all, for: 'send_to_all' %>
+  </div>
+  <div class="form-group">
+    <%= f.radio_button :send_option, 'random_10', id: 'send_to_random_10', class: 'form-check-input' %>
+    <%= f.label :send_option_random_10, for: 'send_to_random_10' %>
   </div>
   <br>
   <br>
