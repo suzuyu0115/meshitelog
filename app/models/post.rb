@@ -23,6 +23,8 @@
 #  fk_rails_...  (author_id => users.id)
 #  fk_rails_...  (user_id => users.id)
 #
+require 'securerandom'
+
 class Post < ApplicationRecord
   mount_uploader :food_image, FoodImageUploader
 
@@ -73,8 +75,8 @@ class Post < ApplicationRecord
   end
 
   # LINEのキャッシュ回避のために画像のURLにタイムスタンプを付与する
-  def unique_image_url
-    "#{food_image.url}?timestamp=#{Time.now.to_i}"
+  def unique_image_url_with_random_string
+    "#{food_image.url}?unique=#{SecureRandom.hex(8)}"
   end
 
   def notify_line
@@ -99,7 +101,7 @@ class Post < ApplicationRecord
       },
       hero: {
         type: "image",
-        url: unique_image_url,
+        url: unique_image_url_with_random_string,
         size: "full",
         aspectRatio: "20:13",
         aspectMode: "cover",
