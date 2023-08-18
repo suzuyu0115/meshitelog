@@ -74,11 +74,6 @@ class Post < ApplicationRecord
     "#{ROOT_URL}/posts/#{id}"
   end
 
-  # LINEのキャッシュ回避のために画像のURLにタイムスタンプを付与する
-  def unique_image_url_with_random_string
-    "#{food_image.url}?unique=#{SecureRandom.hex(8)}"
-  end
-
   def notify_line
     # 予約投稿か否かを判定
     return unless published?
@@ -101,7 +96,7 @@ class Post < ApplicationRecord
       },
       hero: {
         type: "image",
-        url: unique_image_url_with_random_string,
+        url: food_image,
         size: "full",
         aspectRatio: "20:13",
         aspectMode: "cover",
