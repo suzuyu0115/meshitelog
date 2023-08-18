@@ -23,8 +23,6 @@
 #  fk_rails_...  (author_id => users.id)
 #  fk_rails_...  (user_id => users.id)
 #
-require 'securerandom'
-
 class Post < ApplicationRecord
   mount_uploader :food_image, FoodImageUploader
 
