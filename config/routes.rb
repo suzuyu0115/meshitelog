@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :scheduled
       get :received
       get :search_tags
+      get :recommended
     end
   end
 
