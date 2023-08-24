@@ -11,6 +11,11 @@
         <li class="nav-item" role="presentation">
           <a class="nav-link <%= active_class_for('posts', 'top_rated') %>" href="<%= top_rated_posts_path %>" role="tab"><%= t('posts.index.top_rated_post') %></a>
         </li>
+        <% if current_user %>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link <%= active_class_for('posts', 'recommended') %>" href="<%= recommended_posts_path %>" role="tab"><%= t('posts.index.recommended_post') %></a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

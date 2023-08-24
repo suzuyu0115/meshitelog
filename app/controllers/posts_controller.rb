@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :scheduled]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy, :bookmarks, :scheduled, :received]
   before_action :set_recipient_ids, only: [:create, :update]
   before_action :set_post, only: %i[edit update destroy]
 
@@ -93,6 +93,12 @@ class PostsController < ApplicationController
     query = params[:query]
     @tags = ActsAsTaggableOn::Tag.where('name LIKE ?', "%#{query}%")
     render json: @tags.pluck(:name)
+  end
+
+  # レコメンド
+  def recommended
+    @q = current_user.recommended_posts.ransack(params[:q])
+    @recommended_posts = @q.result(distinct: true).includes(:user, :taggings).order(created_at: :desc).page(params[:page])
   end
 
   private

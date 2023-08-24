@@ -36,6 +36,7 @@ ja:
       no_result: '飯投稿がありません'
       new_post: '新着投稿'
       top_rated_post: '人気投稿'
+      recommended_post: 'あなたへのおすすめ'
     new:
       title: '飯テロする'
       recipients: '誰に飯テロする？'
@@ -54,6 +55,9 @@ ja:
       no_result: '届いた飯がありません'
     search:
       title: '探す'
+    recommended:
+      title: 'あなたへのおすすめ'
+      no_result: 'おすすめの飯がありません　(飯投稿にいいねして、おすすめの飯を取得しましょう！)'
   bookmarks:
     create:
       success: 'お気に入りに登録しました'
