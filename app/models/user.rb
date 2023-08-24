@@ -58,13 +58,13 @@ class User < ApplicationRecord
   # レコメンド関係のメソッド
   def similar_users
     # このユーザーがブックマークした投稿をブックマークしているユーザーを取得
-    user_ids = Bookmark.where(post_id: self.bookmark_posts.ids).pluck(:user_id)
+    user_ids = Bookmark.where(post_id: bookmark_posts.ids).pluck(:user_id)
     User.where(id: user_ids)
   end
 
   def recommended_posts
     # 類似ユーザーがブックマークした投稿の中から、このユーザーがまだブックマークしていない投稿を取得
-    post_ids = Bookmark.where(user_id: self.similar_users.ids).pluck(:post_id)
-    Post.where(id: post_ids).where.not(id: self.bookmark_posts.ids)
+    post_ids = Bookmark.where(user_id: similar_users.ids).pluck(:post_id)
+    Post.where(id: post_ids).where.not(id: bookmark_posts.ids)
   end
 end
