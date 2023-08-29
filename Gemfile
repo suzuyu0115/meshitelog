@@ -83,6 +83,12 @@ gem 'rails_admin'
 # enumの多言語化
 gem 'enum_help'
 
+# サイトマップ
+gem 'sitemap_generator'
+
+# 定期実行
+gem 'whenever', require: false
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -111,4 +117,3 @@ group :development do
   # シードデータ
   gem 'faker'
 end
-gem "sassc-rails"
