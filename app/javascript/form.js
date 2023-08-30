@@ -11,12 +11,12 @@ document.addEventListener('turbo:load', function () {
 
     if (postTitle.value.trim() === "") {
       valid = false;
-      messages.push("タイトルは必須です");
+      messages.push("飯名は必須です");
     }
 
     if (postContent.value.trim() === "") {
       valid = false;
-      messages.push("コンテンツは必須です");
+      messages.push("コメントは必須です");
     }
 
     validationMessages.innerHTML = '';
