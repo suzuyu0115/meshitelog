@@ -9,7 +9,7 @@ ja:
         nickname: 'なまえ'
         avatar: 'アバター'
       post:
-        title: '料理名'
+        title: '飯名'
         content: 'コメント'
         food_image: '飯画像'
         tag_list: 'タグ(任意) 「、」区切りで入力'

@@ -44,7 +44,7 @@ class Post < ApplicationRecord
   scope :with_associations, -> { includes(:deliveries, :recipients, :comments, :bookmarks) }
   scope :tag_name_cont, ->(tag_name) { tagged_with(tag_name) }
 
-  ROOT_URL = "https://meshitelog-b166b21425a1.herokuapp.com"
+  ROOT_URL = "https://meshitelog.com"
 
   def self.ransackable_scopes(_auth_object = nil)
     [:tag_name_cont]

@@ -6,6 +6,7 @@ import "./previews"
 import "./slides"
 import "./dropdown"
 import "./search"
+import "./form"
 
 import jquery from "jquery"
 window.$ = window.jQuery = jquery
