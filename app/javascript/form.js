@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener('turbo:load', function () {
   const postForm = document.getElementById('post_form');
   const postSubmit = document.querySelector('.btn.btn-warning.btn-lg');
   const postTitle = document.getElementById('post_title');
@@ -27,10 +27,20 @@ window.onload = function () {
       validationMessages.appendChild(errorElement);
     });
 
-    if (!valid) {
+    postSubmit.disabled = !valid;
+
+    if (event && event.type === 'submit' && !valid) {
       event.preventDefault();
     }
   }
 
+  // blurとchangeイベントでバリデーションを実行
+  postTitle.addEventListener('blur', validateForm);
+  postContent.addEventListener('blur', validateForm);
+  postFoodImage.addEventListener('change', validateForm);
+
   postForm.addEventListener('submit', validateForm);
-};
+
+  // 初回読み込み時のバリデーションチェック
+  validateForm();
+});
