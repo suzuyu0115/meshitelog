@@ -1,5 +1,6 @@
 <div id="validation-messages"></div>
-<%= form_with model: post, local: true do |f| %>
+
+<%= form_with model: post, local: true, id: 'post_form' do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :title %>
