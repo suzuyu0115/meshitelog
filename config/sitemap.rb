@@ -17,26 +17,25 @@ SitemapGenerator::Sitemap.create do
   #
   # Add '/posts'
   #
-    add posts_path, :priority => 0.7, :changefreq => 'daily'
-    add top_rated_posts_path, :priority => 0.6, :changefreq => 'daily'
-    add recommended_posts_path, :priority => 0.6, :changefreq => 'daily'
-    add received_posts_path, :priority => 0.5, :changefreq => 'daily'
-    add bookmarks_posts_path, :priority => 0.5, :changefreq => 'daily'
-    add scheduled_posts_path, :priority => 0.4, :changefreq => 'daily'
+  add posts_path, priority: 0.7, changefreq: 'daily'
+  add top_rated_posts_path, priority: 0.6, changefreq: 'daily'
+  add recommended_posts_path, priority: 0.6, changefreq: 'daily'
+  add received_posts_path, priority: 0.5, changefreq: 'daily'
+  add bookmarks_posts_path, priority: 0.5, changefreq: 'daily'
+  add scheduled_posts_path, priority: 0.4, changefreq: 'daily'
   #
   # Add all posts:
   #
-    Post.find_each do |post|
-      add post_path(post), :lastmod => post.updated_at
-      add edit_post_path(post), :lastmod => post.updated_at
-    end
+  Post.find_each do |post|
+    add post_path(post), lastmod: post.updated_at
+    add edit_post_path(post), lastmod: post.updated_at
+  end
 
-    add new_post_path, :priority => 0.5, :changefreq => 'daily'
+  add new_post_path, priority: 0.5, changefreq: 'daily'
 
+  add profile_path
+  add edit_profile_path
 
-    add profile_path
-    add edit_profile_path
-
-    add terms_path, :priority => 0.2, :changefreq => 'monthly'
-    add privacy_path, :priority => 0.2, :changefreq => 'monthly'
+  add terms_path, priority: 0.2, changefreq: 'monthly'
+  add privacy_path, priority: 0.2, changefreq: 'monthly'
 end
