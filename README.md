@@ -83,4 +83,5 @@ https://www.figma.com/file/YVtS6MfWRdhdZkLd8S4qBu/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 
 
 ## ER図
-![meshitelog_er_diagram](https://github.com/suzuyu0115/meshitelog/assets/113349377/7dab9769-72fa-4c29-91ad-8c6507542307)
+![meshitelog_er_diagram](https://github.com/suzuyu0115/meshitelog/assets/113349377/e4a3682d-48b0-4d4d-bd58-7f6a1fd32e05)
+
