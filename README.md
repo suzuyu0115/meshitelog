@@ -67,17 +67,31 @@ README〜ER図作成：6/10 〆切
 
 本番リリース：7月末
 
-## 技術選定
-- Rails7
-- postgresql
-- Bootstrap
+## 主な使用技術
+
+### バックエンド
+- Ruby(3.2.2)
+- Rails(7.0.5)
+- Redis(4.0)
+- Sidekiq
+
+### フロントエンド
 - JavaScript
 - jQuery
-- heroku
+- Bootstrap(5.3.0)
 - Hotwire
+- LINE Front-end Framework（LIFF）
+
+### インフラ
+- Heroku
+- mkcert
+
+### データベース
+- PostgreSQL
+
+### API
 - LINEMessagingAPI
-- LIFF
-- Sidekiq
+
 
 ## 画面遷移図
 https://www.figma.com/file/YVtS6MfWRdhdZkLd8S4qBu/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0-1&t=411CwZooed8oAqH4-0
