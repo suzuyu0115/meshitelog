@@ -21,7 +21,7 @@ LINE通知を通じて好きな飯画像を好きな時間に飯テロできる�
 | ---- | ---- | ---- |
 | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/75553c3e-3928-47b5-87e1-43f2530f3861" width="500x500"> | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/453c5080-79f7-4ce3-a116-d62ca09a4ecd" width="500x500"> | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/43f711de-e87e-4968-b9df-16e1bf9af0f3" width="500x500"> |
 
-| 3.アプリ上から飯テロをします | 4.送り相手に画像付きの飯テロが届きます。 | Xシェア機能を押すと飯画像付きのポストができます。　|
+| 3.アプリ上から飯テロをします | 4.送り相手に画像付きの飯テロが届きます。 | Xシェアボタンを押すと飯画像付きのポストができます。　|
 | ---- | ---- | ---- |
 | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/b273aea0-e67e-484e-b88a-72948cd52605" width="500x500"> | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/9fdf4655-219d-4d47-a13d-82371228f4a8" width="500x500"> | <img src="https://github.com/suzuyu0115/meshitelog/assets/113349377/65b979c4-7867-46b1-aa59-c05d88a771d4" width="500x500"> |
 
