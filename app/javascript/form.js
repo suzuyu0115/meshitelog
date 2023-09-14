@@ -3,7 +3,6 @@ document.addEventListener('turbo:load', function () {
   const postSubmit = document.querySelector('.btn.btn-warning.btn-lg');
   const postTitle = document.getElementById('post_title');
   const postContent = document.getElementById('post_content');
-  // const validationMessages = document.getElementById('validation-messages'); この行は不要です
 
   function validateForm(event) {
     let valid = true;
