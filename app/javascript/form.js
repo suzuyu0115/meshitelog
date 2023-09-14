@@ -10,7 +10,11 @@ document.addEventListener('turbo:load', function () {
 
     if (postTitle.value.trim() === "") {
       valid = false;
-      postTitle.classList.add('is-invalid');
+
+      // ユーザーがフィールドに何かを入力してからのみスタイルを適用
+      if (event && event.type === 'blur') {
+        postTitle.classList.add('is-invalid');
+      }
       postTitle.classList.remove('is-valid');
     } else {
       postTitle.classList.add('is-valid');
@@ -19,7 +23,11 @@ document.addEventListener('turbo:load', function () {
 
     if (postContent.value.trim() === "") {
       valid = false;
-      postContent.classList.add('is-invalid');
+
+      // ユーザーがフィールドに何かを入力してからのみスタイルを適用
+      if (event && event.type === 'blur') {
+        postContent.classList.add('is-invalid');
+      }
       postContent.classList.remove('is-valid');
     } else {
       postContent.classList.add('is-valid');
