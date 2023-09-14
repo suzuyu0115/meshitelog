@@ -1,15 +1,21 @@
-<div id="validation-messages"></div>
+
 
 <%= form_with model: post, local: true, id: 'post_form' do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', placeholder: '必須', id: 'post_title' %>
+    <%= f.label :title, class: 'required' %>
+    <%= f.text_field :title, class: 'form-control', placeholder: '必須', id: 'post_title', required: true %>
+    <div class="invalid-feedback">
+      飯名は必須です
+    </div>
   </div>
   <br>
   <div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content, class: 'form-control', rows: 10, placeholder: '感想や店名、送り相手への煽りなどご自由に！(必須)', id: 'post_content' %>
+    <%= f.label :content, class: 'required' %>
+    <%= f.text_area :content, class: 'form-control', rows: 10, placeholder: '感想や店名、送り相手への煽りなどご自由に！(必須)', id: 'post_content', required: true %>
+    <div class="invalid-feedback">
+      コメントは必須です
+    </div>
   </div>
   <br>
   <div class="form-group">

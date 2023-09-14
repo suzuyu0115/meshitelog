@@ -12,3 +12,8 @@
   transition: 0.1s;
   /* エフェクトの速度を調整 */
 }
+
+label.required:after {
+  content: " *";
+  color: red;
+}
