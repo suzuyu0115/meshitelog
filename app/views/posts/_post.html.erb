@@ -20,7 +20,7 @@
           <% end %>
         </ul>
         <%= render 'tag_list', post: post %>
-        <p class="card-text"><%= post.content %></p>
+        <p class="card-text"><%= truncate(post.content, length: 40, omission: '...') %></p>
           <% if current_user %>
             <div style="text-align: right;"><%= render 'bookmark_button', post: post %></div>
           <% end %>
