@@ -28,25 +28,36 @@
     <div class="col-lg-6 offset-lg-3 mt-2">
       <h3 class="text-center mb-4 border-bottom pb-3">使い方</h3>
       <div class="card mb-5 p-5">
-      <h4 class="text-center card-title mb-3 border-bottom pb-3">友達追加しよう！</h4>
-      <p><b><font color="green">「飯テログ」を友達追加、LINE認証</font>して飯テロをする準備を整えましょう！</b><br>
-      メールアドレスやパスワードの入力が不要なので、スムーズに登録が行えます</p>
-      <%= image_tag 'lineqr.png', size: '200x200', class: 'mx-auto'  %>
+        <h4 class="text-center card-title mb-3 border-bottom pb-3">友達追加しよう！</h4>
+        <p><b><font color="green">「飯テログ」を友達追加、LINE認証</font>して飯テロをする準備を整えましょう！</b><br>
+          メールアドレスやパスワードの入力が不要なので、スムーズに登録が行えます</p>
+        <div class="d-flex flex-column align-items-center">
+          <%= image_tag 'lineqr.png', size: '200x200', class: 'mb-2'  %>
+          <%= image_tag 'chatroom.jpg', width: '300x300', class: 'mb-2'  %>
+        </div>
       </div>
       <div class="card mb-5 p-5">
       <h4 class="text-center card-title mb-3 border-bottom pb-3">投稿しよう！</h4>
-      <p><b><font color="#ff0000">「投稿作成」</font> から飯を投稿しましょう！</b><br>
-      あの時食べて美味しかったもの、印象に残っている料理などを皆に共有しましょう！</p>
+        <p><b><font color="#ff0000">「投稿作成」</font> から飯を投稿しましょう！</b><br>
+        あの時食べて美味しかったもの、印象に残っている料理などを皆に共有しましょう！</p>
+        <%= image_tag 'post.jpg', width: '300x300', class: 'mx-auto' %>
       </div>
       <div class="card mb-5 p-5">
       <h4 class="text-center card-title mb-3 border-bottom pb-3">送り相手を選ぼう！</h4>
-      <p>投稿は、<b>送り相手を選んで送ることもできます！</b><br>
-      送られた側は「届いた飯」リストから受け取った飯の確認ができます。</p>
+        <p>投稿は、<b>送り相手を選んで送ることもできます！</b><br>
+        送られた側は「届いた飯」リストから受け取った飯の確認ができます。</p>
       </div>
       <div class="card mb-2 p-5">
       <h4 class="text-center card-title mb-3 border-bottom pb-3">LINEで飯の確認！</h4>
-      <p>送った飯は、送られた側に<b><font color="green">画像付きのLINE通知</font>として届きます！</b><br>
-      夜やお腹の空いてる時間に送りつけることで、嫌がらせになること間違い無し！</p>
+        <p>送った飯は、送られた側に<b><font color="green">画像付きのLINE通知</font>として届きます！</b><br>
+        夜やお腹の空いてる時間に送りつけることで、嫌がらせになること間違い無し！</p>
+        <%= image_tag 'deliveries.jpg', width: '300x300', class: 'mx-auto' %>
+      </div>
+      <div class="card mb-2 p-5">
+      <h4 class="text-center card-title mb-3 border-bottom pb-3">Xでシェア！</h4>
+        <p>送れらた飯は<b><font color="red">X(旧Twitter)</font>で飯テロすることもできます！</b><br>
+        SNSのお友達にも届いた飯をお裾分けしちゃいましょう！</p>
+        <%= image_tag 'share.jpg', width: '300x300', class: 'mx-auto' %>
       </div>
     </div>
   </div>
