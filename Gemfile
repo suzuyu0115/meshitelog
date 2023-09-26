@@ -89,6 +89,9 @@ gem 'sitemap_generator'
 # 定期実行
 gem 'whenever', require: false
 
+# シードデータ
+gem 'faker'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -115,7 +118,4 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
-
-  # シードデータ
-  gem 'faker'
 end
