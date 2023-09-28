@@ -23,14 +23,14 @@ RSpec.describe User, type: :model do
   end
 
   # # アソシエーションのテスト
-  # describe "associations" do
-  #   it { should have_many(:posts).dependent(:destroy) }
+  describe "associations" do
+    it { should have_many(:posts).dependent(:destroy) }
   #   it { should have_many(:deliveries).dependent(:destroy) }
   #   it { should have_many(:received_posts).through(:deliveries) }
   #   it { should have_many(:comments).dependent(:destroy) }
   #   it { should have_many(:bookmarks).dependent(:destroy) }
   #   it { should have_many(:bookmark_posts).through(:bookmarks) }
-  # end
+  end
 
   # enumのテスト
   describe "enum role" do
