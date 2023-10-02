@@ -97,14 +97,12 @@ LINE通知を通じて好きな飯画像を好きな時間に飯テロできる�
 
 ### フロントエンド
 - JavaScript
-- jQuery
 - Bootstrap(5.3.0)
 - Hotwire
 - LINE Front-end Framework（LIFF）
 
 ### インフラ
 - Heroku
-- mkcert
 
 ### データベース
 - PostgreSQL
