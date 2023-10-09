@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :name, presence: true
+  validates :line_user_id, presence: true, uniqueness: true
 
   enum role: { general: 0, admin: 1 }
 
