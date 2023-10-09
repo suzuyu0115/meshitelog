@@ -40,3 +40,4 @@
 /public/sitemap.xml.gz
 /.DS_store
 /.dump.rdb
+coverage
